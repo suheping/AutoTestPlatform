@@ -8,14 +8,18 @@ import requests
 from util.baseApi import sendRequest,writeResult
 from util.copyXls import copyXls,writeXls
 from util.readXlsUtil import readXlsUtil
+from util.loadConf import loadConf
 
 
-# 当获取data目录
+# 获取data、report目录
 dataPath = os.path.abspath(os.path.join(os.getcwd(), "../data"))
 reportPath = os.path.abspath(os.path.join(os.getcwd(),'../report'))
 
-dataXls = os.path.join(dataPath,'case1.xlsx')
-reportXls = os.path.join(reportPath,'case1_result.xlsx')
+datafile = loadConf.get_config('test_api','data_file')
+reportfile = loadConf.get_config('test_api','report_file')
+
+dataXls = os.path.join(dataPath,datafile)
+reportXls = os.path.join(reportPath,reportfile)
 
 # 读取测试用例
 testData_pre = readXlsUtil(dataXls).dict_data(1)

@@ -11,14 +11,15 @@ import os
 from util.baseApi import sendRequest,writeResult
 from util.copyXls import copyXls
 from util.readXlsUtil import readXlsUtil
+from util.loadConf import loadConf
 
 
 # 当获取data目录
 dataPath = os.path.abspath(os.path.join(os.getcwd(), "../data"))
 reportPath = os.path.abspath(os.path.join(os.getcwd(),'../report'))
 
-dataXls = os.path.join(dataPath,'case_process.xlsx')
-reportXls = os.path.join(reportPath,'case_process_result.xlsx')
+dataXls = os.path.join(dataPath,loadConf.get_config('test_process','data_file'))
+reportXls = os.path.join(reportPath,loadConf.get_config('test_process','report_file'))
 
 # 读取测试数据
 testData_pre = readXlsUtil(dataXls).dict_data(0)
