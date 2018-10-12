@@ -10,7 +10,6 @@ from util.copyXls import copyXls,writeXls
 from util.readXlsUtil import readXlsUtil
 from util.loadConf import loadConf
 
-
 # 获取data、report目录
 dataPath = os.path.abspath(os.path.join(os.getcwd(), "../data"))
 reportPath = os.path.abspath(os.path.join(os.getcwd(),'../report'))
@@ -22,7 +21,8 @@ dataXls = os.path.join(dataPath,datafile)
 reportXls = os.path.join(reportPath,reportfile)
 
 # 读取测试用例
-testData_pre = readXlsUtil(dataXls).dict_data(1)
+testData_pre = readXlsUtil(dataXls).dict_data(0)
+
 testData_norm = readXlsUtil(dataXls).dict_data(1)
 
 
