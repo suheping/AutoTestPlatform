@@ -21,11 +21,13 @@ def sendRequest(session,testData):
         params = eval(testData['params'])
     except:
         params = None
+        logger.warning('请求params 为空')
 
     try:
         headers = eval(testData['headers'])
     except:
         headers = None
+        logger.warning('请求headers 为空')
     bodyType = testData['bodyType']
 
     logger.info("*******正在执行用例：-----  %s  ----**********" % caseId)
@@ -36,10 +38,12 @@ def sendRequest(session,testData):
         body = eval(testData['body'])
     except:
         body = {}
+        logger.warning('请求dody 为空')
 
     if bodyType == 'json':
         body = json.dumps(body)
     else:
+        logger.warning('请求body_type 为空')
         body = body
     if method == 'post':
         logger.info("post请求body类型为：%s，body内容为：%s" % (bodyType,body))
@@ -62,23 +66,24 @@ def sendRequest(session,testData):
         result["statusCode"] = str(response.status_code)  # 状态码转成str
         result["text"] = response.content.decode("utf-8")
         result["times"] = str(response.elapsed.total_seconds())  # 接口请求时间转str
+        # 判断http状态码，如果不是200，判定为失败
         if result["statusCode"] != "200":
             result["error"] = result["text"]
-        else:
-            result["error"] = ""
-
-        type(result['text'])
-
-        if testData["checkpoint"] in result["text"]:
-            result["result"] = "pass"
-            logger.info("用例测试结果:   %s---->%s" % (caseId, result["result"]))
-        else:
             result["result"] = "fail"
-
-        return result
+        else:   # 如果http状态码是200，进行检查点的判断
+            result["error"] = ""
+            if testData["checkpoint"] in result["text"]:
+                result["result"] = "pass"
+            else:
+                result["result"] = "fail"
+        # return result
     except Exception as e :
         result['error'] = str(e)
         result['result'] = 'fail'
+        logger.error('请求报错，错误信息为：%s' % str(e))
+        # return result
+    finally:
+        logger.info("用例测试结果:   %s---->%s" % (caseId, result["result"]))
         return result
 
 def writeResult(result,filename):

@@ -5,12 +5,11 @@
 # desc: 日志工具类
 
 import logging
-import time,os
+import os
+from util import glb
 
+logPath = glb.reportPath
 
-ctime: str = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
-reportPath = os.path.abspath(os.path.join(os.getcwd(),'../report'))
-logPath = os.path.join(reportPath,ctime)
 if not os.path.exists(logPath):
     os.mkdir(logPath)
 logfile = os.path.join(logPath,'output.log')

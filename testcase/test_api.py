@@ -9,10 +9,11 @@ from util.baseApi import sendRequest,writeResult
 from util.copyXls import copyXls,writeXls
 from util.readXlsUtil import readXlsUtil
 from util.loadConf import loadConf
+from util import glb
 
 # 获取data、report目录
-dataPath = os.path.abspath(os.path.join(os.getcwd(), "../data"))
-reportPath = os.path.abspath(os.path.join(os.getcwd(),'../report'))
+dataPath = glb.dataPath
+reportPath = glb.reportPath
 
 datafile = loadConf.get_config('test_api','data_file')
 reportfile = loadConf.get_config('test_api','report_file')
@@ -22,7 +23,6 @@ reportXls = os.path.join(reportPath,reportfile)
 
 # 读取测试用例
 testData_pre = readXlsUtil(dataXls).dict_data(0)
-
 testData_norm = readXlsUtil(dataXls).dict_data(1)
 
 

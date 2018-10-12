@@ -12,11 +12,11 @@ from util.baseApi import sendRequest,writeResult
 from util.copyXls import copyXls
 from util.readXlsUtil import readXlsUtil
 from util.loadConf import loadConf
-
+from util import glb
 
 # 当获取data目录
-dataPath = os.path.abspath(os.path.join(os.getcwd(), "../data"))
-reportPath = os.path.abspath(os.path.join(os.getcwd(),'../report'))
+dataPath = glb.dataPath
+reportPath = glb.reportPath
 
 dataXls = os.path.join(dataPath,loadConf.get_config('test_process','data_file'))
 reportXls = os.path.join(reportPath,loadConf.get_config('test_process','report_file'))
