@@ -1,0 +1,57 @@
+设计思路
+1、终极目的：节省测试时间，摆脱点点点
+2、痛点分析：测试过程中迭代较为频繁，所以上线回归验证时间、提测后冒烟测试时间较长，尤其是项目不稳定时，改一个bug就要全回归。这类工作耗时且容易漏测
+3、提供的功能：单接口测试、流程接口测试
+4、框架：python+requests 实现http接口请求
+    unittest+ddt 实现数据驱动的单元测试
+    htmltestrunner+smtplib 实现邮件反馈html测试测试报告
+    openpyxl 读取测试数据、记录测试结果
+    logging 日志记录测试过程
+
+
+用户指南
+1、用户维护/data目录下的xxx.xlsx文件，填写测试用例数据
+2、用户维护/conf目录下的config.conf文件，填写相关信息
+   config.conf配置文件描述：
+    [test_api]   # 单接口测试
+    data_file = case1.xlsx    # 单接口测试用例文件名
+    report_file = report1.xlsx    # 单接口测试结果文件名
+
+    [test_process]    # 流程测试，用户冒烟或回归测试
+    data_file= case_process.xlsx    # 流程测试用例文件名
+    report_file = report_process.xlsx    # 流程测试结果文件名
+
+    rule = test_api.py     # 需要执行测试的文件，共两个test_api.py 和 test_process.py
+                           # 其中test_api.py是单接口测试用的，test_process.py是流程测试用的
+                           # 可以填写 test_*.py 两个都执行
+
+    [email]    # 邮件发送测试报告配置
+    SMTP_host = smtp.mxhichina.com      # 邮件服务器地址，目前配置的是choicesoft.com.cn公司邮箱地址
+    from_addr = xxx@choicesoft.com.cn   # 发件人邮箱地址
+    password = xxx                      # 发件人邮箱密码
+    to_addrs = shp@choicesoft.com.cn,clw@choicesoft.com.cn    # 收件人邮箱地址，多个收件人用英文,分隔
+3、运行/bin/run.py开始测试
+4、执行结束后，会在/report/<日期时间文件夹> 下生成output.log、xxx.xlsx（结果文件）、report_xxx.html（报告文件）
+5、配置文件、测试数据上传、测试结果报告日志下载可通过FTP完成   -- 功能待完善
+
+
+特别注意：
+维护用例的xlsx文件格式不能修改，必须用这个格式
+对于单接口测试，xlsx文件只能有一个sheet，请把多余sheet删除
+对于流程测试，xlsx文件可以有多个sheet，每个sheet一个流程
+字段介绍：
+caseId        可为空，用例编号，推荐填写
+method        必填，http请求类型，post、get   小写！
+url           必填，http请求地址
+params        可为空，请求参数，格式：json，如：{"message":"xiabuxiabu_7131C9157F2D4FE3A59C_2_2","openid":"o29U5wpRQPqnQWCggpgaU5Cti_Ck"}
+headers       可为空，请求headers，格式：json，如：{"Accept-Encoding":"gzip, deflate"}
+bodyType      可为空，post请求body类型，两个值可填：json、（为空），不填默认form表单格式
+body          可为空，post请求body内容，格式：json
+checkpoint    必填，检查点，用来判断接口请求是否成功
+status_code   空，http状态码，运行结束后自动填写
+text          空，响应信息，运行结束后自动填写
+error         空，报错信息，运行结束后自动填写
+times         空，接口耗时，运行结束后自动填写
+result        空，测试结果，运行结束后自动填写：pass、fail
+case_type     必填，用例类型，0：前置用例，1：正常用例。 登录、扫码等需要保存session的请设置为0，其他为1
+

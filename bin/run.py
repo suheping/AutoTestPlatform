@@ -13,6 +13,7 @@ from util import glb
 reportPath = glb.reportPath
 casePath = os.path.abspath(os.path.join(os.getcwd(),'../testcase'))
 
+
 def add_case(casePath=casePath,rule="test_api.py"):
     discover = unittest.defaultTestLoader.discover(casePath,pattern=rule)
     return discover
