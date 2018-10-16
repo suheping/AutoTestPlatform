@@ -7,8 +7,9 @@
 import xlrd,os
 
 class readXlsUtil():
-    def __init__(self,xlsPath, sheetName='Sheet1'):
+    def __init__(self,xlsPath, sheetName):
         self.data = xlrd.open_workbook(xlsPath)
+        self.sheetList = self.data.sheet_names()
         self.table = self.data.sheet_by_name(sheetName)
         # 读取第一行数据作为key值
         self.keys = self.table.row_values(0)
@@ -38,9 +39,9 @@ class readXlsUtil():
             return r
 
 if __name__ == "__main__":
-    filepath = '../data/case_smdc.xlsx'
-    sheetName = 'Sheet1'
+    filepath = '../data/case_process.xlsx'
+    sheetName = 'Sheet2'
     data = readXlsUtil(filepath,sheetName)
-    # print(data.dict_data())
+    print(data.dict_data(0))
     for i in data.dict_data(1):
         print(i['caseId'])

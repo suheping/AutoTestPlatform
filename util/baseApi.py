@@ -14,6 +14,7 @@ logger = Log('baseApi')
 
 def sendRequest(session,testData):
     '''封装requests请求'''
+    print('testdata:%s'%testData)
     caseId = testData['caseId']
     method = testData['method']
     url = testData['url']
@@ -61,6 +62,11 @@ def sendRequest(session,testData):
                        )
 
         logger.info("返回信息：%s" % response.content.decode('utf-8'))
+        if 'sheetName' in testData.keys():
+            result['sheetName'] =testData['sheetName']
+        else:
+            result['sheetName'] = 'Sheet1'
+
         result['id'] = testData['caseId']
         result['rowNum'] = testData['rowNum']
         result["statusCode"] = str(response.status_code)  # 状态码转成str
@@ -84,6 +90,7 @@ def sendRequest(session,testData):
         # return result
     finally:
         logger.info("用例测试结果:   %s---->%s" % (caseId, result["result"]))
+        print("result:%s" % result)
         return result
 
 def writeResult(result,filename):
@@ -94,6 +101,14 @@ def writeResult(result,filename):
     wt.write(rowNum,11,result['error'])
     wt.write(rowNum,12,result['times'])
     wt.write(rowNum,13,result['result'])
+
+def writeResult2(result,filename):
+    wt = writeXls(filename)
+    wt.write2(result['sheetName'],result['rowNum'],9,result['statusCode'])
+    wt.write2(result['sheetName'],result['rowNum'],10,result['text'])
+    wt.write2(result['sheetName'],result['rowNum'],11,result['error'])
+    wt.write2(result['sheetName'],result['rowNum'],12,result['times'])
+    wt.write2(result['sheetName'],result['rowNum'],13,result['result'])
 
 
 if __name__ == '__main__':
