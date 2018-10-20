@@ -2,7 +2,7 @@
 # author:peace
 # datetime:2018/9/29 17:29
 # file:readXlsUtil
-# desc: 读取excel测试数据文件工具类
+# desc: 读取excel测试数据文件工具类 -- 单接口
 
 import xlrd,os
 
