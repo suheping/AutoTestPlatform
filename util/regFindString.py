@@ -26,20 +26,42 @@ class regFindString:
 
 if __name__ == "__main__":
 
+    tmp = {}
+
     s1 = "var tableKey = '201810207131C9157F2D4FE3A59C111'; // 桌台码  " \
          "var orderKey = '7131C9157F2D4FE3A59C_o29U5wq7XF-OutcJRojtmO2exjhY_orders';"
 
     js = "{\"tablekey\":\"tableKey = '(.+?)';\",\"orderKey\":\"orderKey = '(.+?)';\"}"
 
     params = regFindString(s1,js).find()
+    print(params)
+    for i in params:
+        tmp[i] = params[i]
+        print(tmp)
 
-    body = '{"tableKey":"${tablekey}","soupOrder":"Y","orderKey":"${orderKey}"}'
+    s2 = "var tableKey = '201810207131C9157F2D4FE3A59C111'; // 桌台码  " \
+         "var orderid = '7131C9157F2D4FE3A59C_o29U5wq7XF-OutcJRojtmO2exjhY_orders';"
+
+    js2 = "{\"tablekey\":\"tableKey = '(.+?)';\",\"orderid\":\"orderid = '(.+?)';\"}"
+
+    params2 = regFindString(s2,js2).find()
+
+    print(params2)
+    for j in params2:
+        tmp[j] = params2[j]
+
+    print(tmp)
 
 
-    l = re.findall("\${(.+?)}",body)
-    print(l)
-    for i in l:
-        body = body.replace("${"+ i +"}",params[i])
-    print(body)
+
+
+    # body = '{"tableKey":"${tablekey}","soupOrder":"Y","orderKey":"${orderKey}"}'
+    #
+    #
+    # l = re.findall("\${(.+?)}",body)
+    # print(l)
+    # for i in l:
+    #     body = body.replace("${"+ i +"}",params[i])
+    # print(body)
 
 
