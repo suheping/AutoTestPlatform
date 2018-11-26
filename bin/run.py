@@ -9,6 +9,7 @@ import os,time
 from util import HTMLTestRunner_api
 from util import glb
 from util.loadConf import loadConf
+from util.emailUtil import send_email
 
 
 reportPath = glb.reportPath
@@ -40,7 +41,7 @@ if __name__ == '__main__':
     reportfile = run_case(cases)
     # 发送邮件
     content = open(reportfile,'rb')
-
+    # send_email(subject='自动化测试报告',content=content)
 
 
 

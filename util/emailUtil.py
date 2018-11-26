@@ -35,4 +35,4 @@ if __name__ == '__main__':
     subject = '邮件标题'
     content = '邮件正文'
 
-    send_email(SMTP_host,from_addr,password,to_addrs_list,subject,content)
+    send_email(subject,content)
