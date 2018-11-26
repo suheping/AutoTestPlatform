@@ -24,8 +24,9 @@ class readXlsUtil2():
 
     def dict_data(self,case_type):
         dict_data = []
-        r =[]
+
         for sheet in self.sheetList:
+            r = []
             # print("开始遍历sheet：%s" % sheet)
             # 取到当前sheet的值
             table = self.data.sheet_by_name(sheet)
@@ -59,8 +60,8 @@ class readXlsUtil2():
                         # print('读取到数据，添加到结果集中%s'%s)
                     j += 1
                 # dict_data.append(r)
-        # return dict_data
-        return r
+            dict_data.append(r)
+        return dict_data
 
 if __name__ == "__main__":
     filepath = '../data/case_process.xlsx'

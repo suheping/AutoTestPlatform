@@ -22,7 +22,8 @@ class Log(object):
         self.logger = logging.getLogger(self.name)
         self.logger.setLevel(logging.INFO)
         # 输出日志到文件
-        self.fh = logging.FileHandler(self.logfile)
+        handler = logging.FileHandler(self.logfile, encoding='utf-8')
+        self.fh = handler
         self.fh.setLevel(logging.DEBUG)
         self.formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(threadName)s - %(name)s - %(message)s')
         self.fh.setFormatter(self.formatter)
