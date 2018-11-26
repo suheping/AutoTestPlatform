@@ -7,6 +7,7 @@
     htmltestrunner+smtplib 实现邮件反馈html测试测试报告
     openpyxl 读取测试数据、记录测试结果
     logging 日志记录测试过程
+    正则表达式截取响应信息，传递参数
 
 
 用户指南
@@ -54,4 +55,12 @@ error         空，报错信息，运行结束后自动填写
 times         空，接口耗时，运行结束后自动填写
 result        空，测试结果，运行结束后自动填写：pass、fail
 case_type     必填，用例类型，0：前置用例，1：正常用例。 登录、扫码等需要保存session的请设置为0，其他为1
+re            可为空，正则表达式，格式：json，如：{"tablekey":"tableKey = '(.+?)';","orderKey":"orderKey = '(.+?)';"}
+              从当前行的响应中取到tableKey和orderKey，可在之后的请求中使用，格式：${tablekey}  ${orderKey}
 
+开发指南：
+python版本3.6.5
+安装依赖模块：
+pip install -r require.txt
+添加新的模块后，需要更新require.txt文件：
+pip freeze > require.txt
