@@ -64,3 +64,4 @@ python版本3.6.5
 pip install -r require.txt
 添加新的模块后，需要更新require.txt文件：
 pip freeze > require.txt
+123
