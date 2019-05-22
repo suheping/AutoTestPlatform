@@ -22,13 +22,13 @@ def sendRequest(session,testData):
         params = eval(testData['params'])
     except:
         params = None
-        logger.warning('请求params 为空')
+        logger.info('请求params 为空')
 
     try:
         headers = eval(testData['headers'])
     except:
         headers = None
-        logger.warning('请求headers 为空')
+        logger.info('请求headers 为空')
     bodyType = testData['bodyType']
 
     logger.info("*******正在执行用例：-----  %s  ----**********" % caseId)
@@ -39,12 +39,12 @@ def sendRequest(session,testData):
         body = eval(testData['body'])
     except:
         body = {}
-        logger.warning('请求dody 为空')
+        logger.info('请求dody 为空')
 
     if bodyType == 'json':
         body = json.dumps(body)
     else:
-        logger.warning('请求body_type 为空')
+        logger.info('请求body_type 为空')
         body = body
     if method == 'post':
         logger.info("post请求body类型为：%s，body内容为：%s" % (bodyType,body))
