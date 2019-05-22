@@ -38,7 +38,7 @@
 
 特别注意：
 维护用例的xlsx文件格式不能修改，必须用这个格式
-对于单接口测试，xlsx文件只能有一个sheet，请把多余sheet删除
+对于单接口测试，xlsx文件只能有一个sheet，请把多余sheet删除（不删除也可以）
 对于流程测试，xlsx文件可以有多个sheet，每个sheet一个流程
 字段介绍：
 caseId        可为空，用例编号，推荐填写
@@ -55,6 +55,8 @@ error         空，报错信息，运行结束后自动填写
 times         空，接口耗时，运行结束后自动填写
 result        空，测试结果，运行结束后自动填写：pass、fail
 case_type     必填，用例类型，0：前置用例，1：正常用例。 登录、扫码等需要保存session的请设置为0，其他为1
+                流程测试用例中，用例类型全部填1
+                单接口测试中，可以有前置用例
 re            可为空，正则表达式，格式：json，如：{"tablekey":"tableKey = '(.+?)';","orderKey":"orderKey = '(.+?)';"}
               从当前行的响应中取到tableKey和orderKey，可在之后的请求中使用，格式：${tablekey}  ${orderKey}
 
