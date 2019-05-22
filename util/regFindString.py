@@ -5,7 +5,6 @@
 # desc: 通过正则取值,传入多个正则的键值对，返回多个键值对
 
 import re,json
-import json.decoder
 from util.logUtil import Log
 
 logger = Log('regFindString')
