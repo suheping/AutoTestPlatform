@@ -4,7 +4,7 @@
 # file:readXlsUtil
 # desc: 读取excel测试数据文件工具类 -- 单接口
 
-import xlrd,os
+import xlrd
 
 class readXlsUtil():
     def __init__(self,xlsPath, sheetName):
@@ -31,7 +31,8 @@ class readXlsUtil():
                 values = self.table.row_values(j)
                 # 判断是否是要读取的用例类型
                 # 0：预置用例   1：正常用例
-                if values[-1] == str(case_type):
+                # 倒数第二列是用例类型，所以是 -2
+                if values[-2] == str(case_type):
                     for x in list(range(self.colNum)):
                         s[self.keys[x]] = values[x]
                     r.append(s)
@@ -39,9 +40,11 @@ class readXlsUtil():
             return r
 
 if __name__ == "__main__":
-    filepath = '../data/case_process.xlsx'
-    sheetName = 'Sheet2'
+    filepath = '../data/case1.xlsx'
+    sheetName = 'Sheet1'
     data = readXlsUtil(filepath,sheetName)
-    print(data.dict_data(0))
-    for i in data.dict_data(1):
+
+    case_data = data.dict_data(0)
+    print(case_data)
+    for i in case_data:
         print(i['caseId'])
