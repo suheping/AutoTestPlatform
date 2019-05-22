@@ -14,7 +14,7 @@ logger = Log('baseApi')
 
 def sendRequest(session,testData):
     '''封装requests请求'''
-    print('testdata:%s'%testData)
+    # print('testdata:%s'%testData)
     caseId = testData['caseId']
     method = testData['method']
     url = testData['url']
@@ -90,7 +90,7 @@ def sendRequest(session,testData):
         # return result
     finally:
         logger.info("用例测试结果:   %s---->%s" % (caseId, result["result"]))
-        print("result:%s" % result)
+        # print("result:%s" % result)
         return result
 
 def writeResult(result,filename):
