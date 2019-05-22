@@ -30,7 +30,9 @@ reportXls = os.path.join(reportPath,loadConf.get_config('test_process','report_f
 # 读取测试数据
 testData_pre = readXlsUtil2(dataXls).dict_data(0)
 testData_norm = readXlsUtil2(dataXls).dict_data(1)
-# print('testData_norm:%s\n'%testData_norm)
+print('testData_norm:%s\n'%testData_norm)
+print('testData_pre:%s\n'%testData_pre)
+
 
 @ddt.ddt
 class MyTestCase(unittest.TestCase):
@@ -47,12 +49,10 @@ class MyTestCase(unittest.TestCase):
     def test_something(self,case_data):
         # 保存所有从响应中取出来的参数及值
         tmp ={}
-        print('hehehhe')
         for data in case_data:
             print('data:%s\n'%data)
             if tmp == {}:
-                # print('没有关联参数')
-                logger.warning("用例%s 没有关联参数" % data['caseId'])
+                logger.info("用例%s 没有关联参数" % data['caseId'])
             else:
                 data['body'] = replace(data['body'], tmp).replace()
                 data['params'] = replace(data['params'], tmp).replace()
