@@ -41,6 +41,7 @@ class MyTestCase(unittest.TestCase):
     def setUpClass(cls):
         cls.session = requests.session()
         copyXls(dataXls, reportXls)
+        # 流程测试全都是普通用例，没有前置用例
         # for i in testData_pre:
         #     result = sendRequest(cls.session,i)
         #     writeResult(result,reportXls)
