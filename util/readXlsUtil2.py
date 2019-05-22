@@ -23,26 +23,29 @@ class readXlsUtil2():
         # self.colNum = self.table.ncols
 
     def dict_data(self,case_type):
+        # 定义用例数组
         dict_data = []
 
         for sheet in self.sheetList:
+            # 定义每个sheet的 单个流程的用例数组
             r = []
             # print("开始遍历sheet：%s" % sheet)
-            # 取到当前sheet的值
+            # 取到当前sheet的名
             table = self.data.sheet_by_name(sheet)
-            # 取到第一行的key
-            keys = table.row_values(0)
             # 取到总行数、总列数
             rowCount = table.nrows
-            # print(rowCount)
-            colCount = table.ncols
-            # print(colCount)
+            # print('总行数',rowCount)
 
-            if rowCount <=1:   # 如果总行数小于等于1，也就是没有数据
+            if rowCount <1:   # 如果总行数小于等于1，也就是没有数据
                 print("未在%s的%s中找到测试数据"%(self.xlsPath,sheet))
             else:  # 如果总行数>1
-                # print('%s的行数大于1'%sheet)
-                # r = []
+
+                # 取到第一行的key
+                keys = table.row_values(0)
+                # 取到总列数
+                colCount = table.ncols
+                # print('总列数', colCount)
+
                 j = 1
                 for i in list(range(rowCount - 1)):
                     # print('开始读取%s的第%s行'%(sheet,i))
@@ -64,8 +67,8 @@ class readXlsUtil2():
         return dict_data
 
 if __name__ == "__main__":
-    filepath = '../data/case_process.xlsx'
-    # sheetName = 'Sheet2'
+    filepath = '../data/case_smdc.xlsx'
+    # sheetName = 'Sheet1'
     data = readXlsUtil2(filepath)
     # print(len(data.dict_data(1)))
     print('\n')
