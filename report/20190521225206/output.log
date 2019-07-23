@@ -1,0 +1,58 @@
+2019-05-21 22:52:07,667 - WARNING - MainThread - test_process - 用例c02 没有关联参数
+2019-05-21 22:52:07,667 - WARNING - MainThread - baseApi - 请求params 为空
+2019-05-21 22:52:07,667 - INFO - MainThread - baseApi - *******正在执行用例：-----  c02  ----**********
+2019-05-21 22:52:07,667 - INFO - MainThread - baseApi - 请求方式：post, 请求url:http://yun.choicesaas.cn/cloud/api/auth/logout
+2019-05-21 22:52:07,667 - INFO - MainThread - baseApi - 请求params：None
+2019-05-21 22:52:07,668 - INFO - MainThread - baseApi - post请求body类型为：json，body内容为：{"accessToken": "${accessToken}", "refreshToken": "${refreshToken}"}
+2019-05-21 22:52:07,857 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>辰森云平台</title>
+  <!--打印模板图标-->
+  <link href="//at.alicdn.com/t/font_935187_p7wocmf6svk.css" rel="stylesheet">
+  <!-- ChenSenProject 图标库 -->
+  <link href="//at.alicdn.com/t/font_825912_04fy6floyp55.css" rel="stylesheet">
+<link href="/index.3b46e585.css" rel="stylesheet"></head>
+
+<body>
+
+  <div id="root"></div>
+
+  <!--[if lt IE 8]>
+<script src="http://as.alipayobjects.com/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.js,es5-shim/4.1.14/es5-sham.js,html5shiv/3.7.2/html5shiv.js"></script>
+<script src="http://g.alicdn.com/mtb/lib-promise/3.1.1/polyfillB.js"></script>
+<div class="browserUpgrade">
+  <div class="upgrade-header">
+    <div class="upgrade-header-content">
+      <span class="upgrade-text">浏览器版本太低，可能导致部分图片和信息缺失，需尽快升级浏览器</span>
+      <a class="jui-btn upgrade-btn upgrade-btn-uc" href="http://www.uc.cn/ucbrowser/download/" target="_blank">下载UC浏览器</a>
+      <a class="jui-btn upgrade-btn upgrade-btn-chrome" href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html" target="_blank">下载Chrome浏览器</a>
+    </div>
+  </div>
+</div>
+<![endif]-->
+  <div style="display: none;">
+    <script type="text/javascript" src="https://s96.cnzz.com/z_stat.php?id=1276026176&web_id=1276026176"></script>
+  </div>
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = _paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['setDocumentTitle', document.title]);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = (("https:" == document.location.protocol) ? "https" : "http") + "://piwik.choicesaas.cn/";
+      _paq.push(['setTrackerUrl', u + 'piwik.php']);
+      _paq.push(['setSiteId', '10']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+<script type="text/javascript" src="/common.1620018d3643ff4ff89a.js"></script><script type="text/javascript" src="/index.b79b3c70.js"></script></body>
+
+</html>
+2019-05-21 22:52:07,857 - INFO - MainThread - baseApi - 用例测试结果:   c02---->fail

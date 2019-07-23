@@ -1,0 +1,246 @@
+2019-05-21 17:22:21,476 - INFO - MainThread - baseApi - *******正在执行用例：-----  c02  ----**********
+2019-05-21 17:22:21,476 - INFO - MainThread - baseApi - 请求方式：get, 请求url:http://palmrest.tst.choicesaas.cn/palm-restrant/c/first.do
+2019-05-21 17:22:21,476 - INFO - MainThread - baseApi - 请求params：{'message': 'xiabuxiabu_7131C9157F2D4FE3A59C_2_2', 'appid': 'wx5e6c20b2d813400b', 'openid': 'o29U5wpRQPqnQWCggpgaU5Cti_Ck'}
+2019-05-21 17:22:21,476 - WARNING - MainThread - baseApi - 请求dody 为空
+2019-05-21 17:22:21,476 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 17:22:37,697 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html>
+<head>
+    
+    
+    
+    
+    
+    <base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/"/>
+    <meta charset="utf-8"/>
+    <title>欢迎光临</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="点餐欢迎页">
+    <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js"></script>
+    <link rel="stylesheet" href="/palm-restrant/css/weui.min.css">
+    <link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css">
+    <link rel="stylesheet" href="/palm-restrant/css/font-awesome.min.css">
+    
+        
+            <link rel="stylesheet" href="/palm-restrant/css/main_golden.css">
+        
+        
+    
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%
+        }
+
+        .bgWelcome {
+            background-image: url(/palm-restrant/img/new_img/wellcomBG.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .welcome .shopName {
+            top: 15%
+        }
+
+        .welcome .logo {
+            width: 40%;
+        }
+
+        .conten-box{
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 70px;
+        }
+
+        .conten-box .shopName h5{
+            color: #fff;
+            font-size: 20px;
+        }
+        .conten-box .shopName .subTit{
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .welcome .btnCont{
+            padding: 15px 0;
+        }
+        .welcome .btnCont .weui_btn{
+            width: 210px;
+            background: rgba(75,55,46,0.5);
+            border: none;
+        }
+        .logo{
+            position: fixed;
+            top:20px;
+            left: 20px;
+            width: 100px;
+        }
+        .tableNum{
+            width: 100%;
+            text-align: center;
+            font-size: 17px;
+            color: #fff;
+        }
+        .perInfo{
+            font-size: .32rem;
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            color: #C8A063 ;
+            margin-top: 1rem;
+            margin-bottom: .2rem;
+        }
+        .perInfo .word{
+            display:inline-block;
+            padding-right: .2rem;
+            border-right: 1px solid #C8A063 ;
+        }
+        .perInfo .myOrder{
+            padding-left: .2rem;
+        }
+        .shopLogo img{
+            width: 18%;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .welcome .shopAction .content{
+            width: 6.3rem;
+        }
+        .welcome .btnCont .toMeal{
+            width: 100%;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            background: #C8A063;
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body class="bgWelcome" ontouchstart="util.isIOS() && event.preventDefault()">
+<div class="welcome">
+    <div class="conten-box">
+        <div class="shopLogo">
+            <img src="/palm-restrant/img/new_img/logo.png" alt="">
+        </div>
+        <div class="shopName">
+            <h5>呷哺呷哺-白广路店</h5>
+        </div>
+        
+            <div class="tableNum">
+                    2号桌
+            </div>
+        
+        <div class="perInfo">
+            <span class="word" onclick="toCard();"> 会员中心 </span><span class="myOrder" onclick="toOrder()">我的订单</span>
+        </div>
+        <div class="shopAction">
+            <div class="content">
+                <div class="btnCont">
+                    <a href="javascript:void(0); " class="weui_btn weui_btn_plain_white toMeal" onclick="toMeal();">点单</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/palm-restrant/js/jquery-1.11.0.min.js"></script>
+<script src="/palm-restrant/js/layer/layer.js"></script>
+<link rel="stylesheet" href="/palm-restrant/css/new_layer.css">
+<script src="/palm-restrant/js/fastclick.js"></script>
+<script src="/palm-restrant/js/layerUtil.js?1.1.190420"></script>
+<script src="/palm-restrant/js/utils.js?1.1.190420"></script>
+<script>
+    var rootPath = '/palm-restrant';
+    var tableKey = '201905217131C9157F2D4FE3A59C2'; // 桌台码
+    var tableFee = ''; // 台位费
+    var memberType = 'yzMember'; // 会员类型
+    var mothed = '2';  // 支付宝 或 微信
+    var orderKey = '';
+    var payOrderKey = '';
+    var havePrePayOrder = ""; // 是否存在预点餐先支付的订单
+    var payIn = ''; // 已下单未支付
+    var isPrePayOrder = "N"; // 是否存在预点餐先支付的订单
+    var codepay = '';
+    var isScanPay = '';
+    var hasNotPayOrders = '';
+    var orderId = '';
+    var customerNum = '';
+    var userId = 'o29U5wpRQPqnQWCggpgaU5Cti_Ck';
+    var firmId = '';
+    var availableTable = '';
+    var subtables = '';
+    var matomoId = '16';
+    var matomoUrl = '//piwik.choicesaas.cn/';
+    var userName = '破冰';
+    var usertype = (mothed == "1") ? '支付宝':'微信';
+    window.ap && ap.setNavigationBar({
+        backgroundColor: '#000'
+    });
+    // 来判断是否为第一次进入页面，控制检测订单
+    var refcCode = sessionStorage.getItem('flag');
+    sessionStorage.setItem('flag','true');
+
+</script>
+<script src="/palm-restrant/js/pages/first.js?1.1.190420"></script>
+<!-- Matomo -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    // you can set up to 5 custom variables for each visitor
+    _paq.push(["setCustomVariable", 1, "userId", userId, "visit"]);
+    _paq.push(["setCustomVariable", 2, "userType", usertype, "visit"]);
+    _paq.push(['setUserId', '[' + userId + ']' + userName]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u = matomoUrl;
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', matomoId]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+<!-- End Matomo Code -->
+</body>
+</html>
+2019-05-21 17:22:37,700 - INFO - MainThread - baseApi - 用例测试结果:   c02---->pass
+2019-05-21 17:22:37,744 - INFO - MainThread - baseApi - *******正在执行用例：-----  c01  ----**********
+2019-05-21 17:22:37,744 - INFO - MainThread - baseApi - 请求方式：get, 请求url:http://palmrest.tst.choicesaas.cn/palm-restrant/meal/checkOrder1.do
+2019-05-21 17:22:37,744 - INFO - MainThread - baseApi - 请求params：{'tableKey': '201809295FE03E61AAF5406EB3AF101'}
+2019-05-21 17:22:37,744 - WARNING - MainThread - baseApi - 请求dody 为空
+2019-05-21 17:22:37,744 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 17:22:37,983 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html>
+	<head>
+		
+		
+		 
+		
+		<base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" />
+		<title>404</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description" content="404">
+		<link rel="stylesheet" href="/palm-restrant/css/weui.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css">
+		<link rel="stylesheet" href="/palm-restrant/css/swiper.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/main.css">
+		<script type="text/javascript" src="/palm-restrant/js/fontSize.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/fastclick.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"></script>
+	</head>
+
+	<body class="top_bottom_index_body">
+		<div style="margin-top: 150px;text-align: center; padding:0 15px">
+			<img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px">
+			<h2></h2>
+			<h4 class="error-msg" style="color: #5a5a5a">404 页面不存在</h4>
+		</div>
+	</body>
+
+</html>
+2019-05-21 17:22:37,983 - INFO - MainThread - baseApi - 用例测试结果:   c01---->fail

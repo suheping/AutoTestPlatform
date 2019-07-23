@@ -1,0 +1,503 @@
+2019-05-21 23:03:54,910 - WARNING - MainThread - test_process - 用例c00 没有关联参数
+2019-05-21 23:03:54,911 - INFO - MainThread - baseApi - *******正在执行用例：-----  c00  ----**********
+2019-05-21 23:03:54,911 - INFO - MainThread - baseApi - 请求方式：get, 请求url:http://palmrest.tst.choicesaas.cn/palm-restrant/c/first.do
+2019-05-21 23:03:54,911 - INFO - MainThread - baseApi - 请求params：{'message': 'xiabuxiabu_7131C9157F2D4FE3A59C_111_2', 'appid': 'wx5e6c20b2d813400b', 'openid': '${tablekey}'}
+2019-05-21 23:03:54,911 - WARNING - MainThread - baseApi - 请求dody 为空
+2019-05-21 23:03:54,911 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 23:03:55,062 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html>
+	<head>
+		
+		
+		 
+		
+		<base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" />
+		<title>错误</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description" content="错误">
+		<link rel="stylesheet" href="/palm-restrant/css/weui.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css">
+		<link rel="stylesheet" href="/palm-restrant/css/swiper.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/main.css">
+		<script type="text/javascript" src="/palm-restrant/js/fontSize.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/fastclick.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"></script>
+	</head>
+
+	<body class="top_bottom_index_body">
+		<div style="margin-top: 150px;text-align: center; padding:0 15px">
+			<img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px">
+			<h2></h2>
+			
+				
+					<h4 class="error-msg" style="color: #5a5a5a">用户授权过期，请重新扫码！</h4>
+				
+				
+			
+		</div>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			pushHistory();
+			window.addEventListener("popstate", function(e) { 
+				    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 
+				    //alert(111);
+					window.location = "/palm-restrant/c/first.do?message=用户授权过期，请重新扫码！";
+				   }, false); 
+			function pushHistory() { 
+				window.history.pushState({}, "title", "c/first.do?message=用户授权过期，请重新扫码！#back"); 
+			}
+		</script>
+	</body>
+
+</html>
+2019-05-21 23:03:55,063 - INFO - MainThread - baseApi - 用例测试结果:   c00---->fail
+2019-05-21 23:03:55,123 - INFO - MainThread - baseApi - *******正在执行用例：-----  c01  ----**********
+2019-05-21 23:03:55,123 - INFO - MainThread - baseApi - 请求方式：get, 请求url:http://palmrest.tst.choicesaas.cn/palm-restrant/meal/checkOrder.do
+2019-05-21 23:03:55,123 - INFO - MainThread - baseApi - 请求params：{'tableKey': ''}
+2019-05-21 23:03:55,123 - WARNING - MainThread - baseApi - 请求dody 为空
+2019-05-21 23:03:55,123 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 23:03:55,167 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html>
+	<head>
+		
+		
+		 
+		
+		<base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" />
+		<title>错误</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description" content="错误">
+		<link rel="stylesheet" href="/palm-restrant/css/weui.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css">
+		<link rel="stylesheet" href="/palm-restrant/css/swiper.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/main.css">
+		<script type="text/javascript" src="/palm-restrant/js/fontSize.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/fastclick.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"></script>
+	</head>
+
+	<body class="top_bottom_index_body">
+		<div style="margin-top: 150px;text-align: center; padding:0 15px">
+			<img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px">
+			<h2></h2>
+			
+				
+					<h4 class="error-msg" style="color: #5a5a5a">订单已取消或完成，请重新扫码！</h4>
+				
+				
+			
+		</div>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			pushHistory();
+			window.addEventListener("popstate", function(e) { 
+				    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 
+				    //alert(111);
+					window.location = "/palm-restrant/c/first.do?message=订单已取消或完成，请重新扫码！";
+				   }, false); 
+			function pushHistory() { 
+				window.history.pushState({}, "title", "c/first.do?message=订单已取消或完成，请重新扫码！#back"); 
+			}
+		</script>
+	</body>
+
+</html>
+2019-05-21 23:03:55,167 - INFO - MainThread - baseApi - 用例测试结果:   c01---->pass
+2019-05-21 23:03:55,233 - WARNING - MainThread - baseApi - 请求headers 为空
+2019-05-21 23:03:55,233 - INFO - MainThread - baseApi - *******正在执行用例：-----  c02  ----**********
+2019-05-21 23:03:55,233 - INFO - MainThread - baseApi - 请求方式：get, 请求url:http://palmrest.tst.choicesaas.cn/palm-restrant/meal/preSelect.do
+2019-05-21 23:03:55,233 - INFO - MainThread - baseApi - 请求params：{'tableKey': ''}
+2019-05-21 23:03:55,233 - WARNING - MainThread - baseApi - 请求dody 为空
+2019-05-21 23:03:55,233 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 23:03:55,272 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html>
+	<head>
+		
+		
+		 
+		
+		<base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" />
+		<title>错误</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description" content="错误">
+		<link rel="stylesheet" href="/palm-restrant/css/weui.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css">
+		<link rel="stylesheet" href="/palm-restrant/css/swiper.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/main.css">
+		<script type="text/javascript" src="/palm-restrant/js/fontSize.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/fastclick.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"></script>
+	</head>
+
+	<body class="top_bottom_index_body">
+		<div style="margin-top: 150px;text-align: center; padding:0 15px">
+			<img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px">
+			<h2></h2>
+			
+				
+					<h4 class="error-msg" style="color: #5a5a5a">订单已取消或完成，请重新扫码！</h4>
+				
+				
+			
+		</div>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			pushHistory();
+			window.addEventListener("popstate", function(e) { 
+				    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 
+				    //alert(111);
+					window.location = "/palm-restrant/c/first.do?message=订单已取消或完成，请重新扫码！";
+				   }, false); 
+			function pushHistory() { 
+				window.history.pushState({}, "title", "c/first.do?message=订单已取消或完成，请重新扫码！#back"); 
+			}
+		</script>
+	</body>
+
+</html>
+2019-05-21 23:03:55,272 - INFO - MainThread - baseApi - 用例测试结果:   c02---->fail
+2019-05-21 23:03:55,348 - INFO - MainThread - baseApi - *******正在执行用例：-----  c03  ----**********
+2019-05-21 23:03:55,348 - INFO - MainThread - baseApi - 请求方式：post, 请求url:http://palmrest.tst.choicesaas.cn/palm-restrant/meal/setOrderObj.do
+2019-05-21 23:03:55,348 - INFO - MainThread - baseApi - 请求params：{'tableKey': ''}
+2019-05-21 23:03:55,348 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 23:03:55,348 - INFO - MainThread - baseApi - post请求body类型为：，body内容为：{'id': '', 'vcode': '811127', 'tables': '112', 'openid': 'o29U5wq7XF-OutcJRojtmO2exjhY', 'firmid': '7131C9157F2D4FE3A59C', 'firmdes': '白广路', 'listNetOrderDtl[0].foodsid': 'E646D9DB4FEA4BAB898A', 'listNetOrderDtl[0].ordersid': '', 'listNetOrderDtl[0].foodsname': '美姬松茸菌菇锅底', 'listNetOrderDtl[0].foodnum': '1', 'listNetOrderDtl[0].price': '20.00', 'listNetOrderDtl[0].nprice': '20.00', 'listNetOrderDtl[0].ispackage': '0', 'listNetOrderDtl[0].grptyp': '105', 'listNetOrderDtl[0].grpcode': '10501', 'listNetOrderDtl[0].pcode': '10501010', 'listNetOrderDtl[0].unit': '份', 'listNetOrderDtl[0].unitcode': '101', 'listNetOrderDtl[0].seq': 'E646D9DB4FEA4BAB898A_0', 'listNetOrderDtl[0].vunitprice': '1', 'listNetOrderDtl[0].totalprice': '20.00', 'listNetOrderDtl[0].vipTotalprice': '20.00', 'money': '20.00', 'sumprice': '20.00'}
+2019-05-21 23:03:55,392 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html>
+	<head>
+		
+		
+		 
+		
+		<base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" />
+		<title>错误</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description" content="错误">
+		<link rel="stylesheet" href="/palm-restrant/css/weui.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css">
+		<link rel="stylesheet" href="/palm-restrant/css/swiper.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/main.css">
+		<script type="text/javascript" src="/palm-restrant/js/fontSize.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/fastclick.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"></script>
+	</head>
+
+	<body class="top_bottom_index_body">
+		<div style="margin-top: 150px;text-align: center; padding:0 15px">
+			<img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px">
+			<h2></h2>
+			
+				
+					<h4 class="error-msg" style="color: #5a5a5a">订单已取消或完成，请重新扫码！</h4>
+				
+				
+			
+		</div>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			pushHistory();
+			window.addEventListener("popstate", function(e) { 
+				    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 
+				    //alert(111);
+					window.location = "/palm-restrant/c/first.do?message=订单已取消或完成，请重新扫码！";
+				   }, false); 
+			function pushHistory() { 
+				window.history.pushState({}, "title", "c/first.do?message=订单已取消或完成，请重新扫码！#back"); 
+			}
+		</script>
+	</body>
+
+</html>
+2019-05-21 23:03:55,392 - INFO - MainThread - baseApi - 用例测试结果:   c03---->pass
+2019-05-21 23:03:55,451 - WARNING - MainThread - baseApi - 请求headers 为空
+2019-05-21 23:03:55,451 - INFO - MainThread - baseApi - *******正在执行用例：-----  c04  ----**********
+2019-05-21 23:03:55,451 - INFO - MainThread - baseApi - 请求方式：get, 请求url:http://palmrest.tst.choicesaas.cn/palm-restrant/meal/menu.do
+2019-05-21 23:03:55,451 - INFO - MainThread - baseApi - 请求params：{'tableKey': '', 'soupOrder': 'Y'}
+2019-05-21 23:03:55,451 - WARNING - MainThread - baseApi - 请求dody 为空
+2019-05-21 23:03:55,452 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 23:03:55,491 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html>
+	<head>
+		
+		
+		 
+		
+		<base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" />
+		<title>错误</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description" content="错误">
+		<link rel="stylesheet" href="/palm-restrant/css/weui.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css">
+		<link rel="stylesheet" href="/palm-restrant/css/swiper.min.css">
+		<link rel="stylesheet" href="/palm-restrant/css/main.css">
+		<script type="text/javascript" src="/palm-restrant/js/fontSize.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/fastclick.js"></script>
+		<script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"></script>
+	</head>
+
+	<body class="top_bottom_index_body">
+		<div style="margin-top: 150px;text-align: center; padding:0 15px">
+			<img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px">
+			<h2></h2>
+			
+				
+					<h4 class="error-msg" style="color: #5a5a5a">订单已取消或完成，请重新扫码！</h4>
+				
+				
+			
+		</div>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			pushHistory();
+			window.addEventListener("popstate", function(e) { 
+				    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 
+				    //alert(111);
+					window.location = "/palm-restrant/c/first.do?message=订单已取消或完成，请重新扫码！";
+				   }, false); 
+			function pushHistory() { 
+				window.history.pushState({}, "title", "c/first.do?message=订单已取消或完成，请重新扫码！#back"); 
+			}
+		</script>
+	</body>
+
+</html>
+2019-05-21 23:03:55,492 - INFO - MainThread - baseApi - 用例测试结果:   c04---->fail
+2019-05-21 23:03:55,561 - WARNING - MainThread - test_process - 用例d00 没有关联参数
+2019-05-21 23:03:55,561 - INFO - MainThread - baseApi - *******正在执行用例：-----  d00  ----**********
+2019-05-21 23:03:55,561 - INFO - MainThread - baseApi - 请求方式：get, 请求url:http://palmrest.tst.choicesaas.cn/palm-restrant/c/first.do
+2019-05-21 23:03:55,561 - INFO - MainThread - baseApi - 请求params：{'message': 'xiabuxiabu_7131C9157F2D4FE3A59C_111_2', 'appid': 'wx5e6c20b2d813400b', 'openid': 'o29U5wq7XF-OutcJRojtmO2exjhY'}
+2019-05-21 23:03:55,561 - WARNING - MainThread - baseApi - 请求dody 为空
+2019-05-21 23:03:55,561 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 23:04:11,384 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<html>
+<head>
+    
+    
+    
+    
+    
+    <base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/"/>
+    <meta charset="utf-8"/>
+    <title>欢迎光临</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="点餐欢迎页">
+    <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js"></script>
+    <link rel="stylesheet" href="/palm-restrant/css/weui.min.css">
+    <link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css">
+    <link rel="stylesheet" href="/palm-restrant/css/font-awesome.min.css">
+    
+        
+            <link rel="stylesheet" href="/palm-restrant/css/main_golden.css">
+        
+        
+    
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%
+        }
+
+        .bgWelcome {
+            background-image: url(/palm-restrant/img/new_img/wellcomBG.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .welcome .shopName {
+            top: 15%
+        }
+
+        .welcome .logo {
+            width: 40%;
+        }
+
+        .conten-box{
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 70px;
+        }
+
+        .conten-box .shopName h5{
+            color: #fff;
+            font-size: 20px;
+        }
+        .conten-box .shopName .subTit{
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .welcome .btnCont{
+            padding: 15px 0;
+        }
+        .welcome .btnCont .weui_btn{
+            width: 210px;
+            background: rgba(75,55,46,0.5);
+            border: none;
+        }
+        .logo{
+            position: fixed;
+            top:20px;
+            left: 20px;
+            width: 100px;
+        }
+        .tableNum{
+            width: 100%;
+            text-align: center;
+            font-size: 17px;
+            color: #fff;
+        }
+        .perInfo{
+            font-size: .32rem;
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            color: #C8A063 ;
+            margin-top: 1rem;
+            margin-bottom: .2rem;
+        }
+        .perInfo .word{
+            display:inline-block;
+            padding-right: .2rem;
+            border-right: 1px solid #C8A063 ;
+        }
+        .perInfo .myOrder{
+            padding-left: .2rem;
+        }
+        .shopLogo img{
+            width: 18%;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .welcome .shopAction .content{
+            width: 6.3rem;
+        }
+        .welcome .btnCont .toMeal{
+            width: 100%;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            background: #C8A063;
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body class="bgWelcome" ontouchstart="util.isIOS() && event.preventDefault()">
+<div class="welcome">
+    <div class="conten-box">
+        <div class="shopLogo">
+            <img src="/palm-restrant/img/new_img/logo.png" alt="">
+        </div>
+        <div class="shopName">
+            <h5>呷哺呷哺-白广路店</h5>
+        </div>
+        
+            <div class="tableNum">
+                    111号桌
+            </div>
+        
+        <div class="perInfo">
+            <span class="word" onclick="toCard();"> 会员中心 </span><span class="myOrder" onclick="toOrder()">我的订单</span>
+        </div>
+        <div class="shopAction">
+            <div class="content">
+                <div class="btnCont">
+                    <a href="javascript:void(0); " class="weui_btn weui_btn_plain_white toMeal" onclick="toMeal();">点单</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/palm-restrant/js/jquery-1.11.0.min.js"></script>
+<script src="/palm-restrant/js/layer/layer.js"></script>
+<link rel="stylesheet" href="/palm-restrant/css/new_layer.css">
+<script src="/palm-restrant/js/fastclick.js"></script>
+<script src="/palm-restrant/js/layerUtil.js?1.1.190420"></script>
+<script src="/palm-restrant/js/utils.js?1.1.190420"></script>
+<script>
+    var rootPath = '/palm-restrant';
+    var tableKey = '201905217131C9157F2D4FE3A59C111'; // 桌台码
+    var tableFee = ''; // 台位费
+    var memberType = 'yzMember'; // 会员类型
+    var mothed = '2';  // 支付宝 或 微信
+    var orderKey = '';
+    var payOrderKey = '';
+    var havePrePayOrder = ""; // 是否存在预点餐先支付的订单
+    var payIn = ''; // 已下单未支付
+    var isPrePayOrder = "N"; // 是否存在预点餐先支付的订单
+    var codepay = '';
+    var isScanPay = '';
+    var hasNotPayOrders = '';
+    var orderId = '';
+    var customerNum = '';
+    var userId = 'o29U5wq7XF-OutcJRojtmO2exjhY';
+    var firmId = '';
+    var availableTable = '';
+    var subtables = '';
+    var matomoId = '16';
+    var matomoUrl = '//piwik.choicesaas.cn/';
+    var userName = '飘流的泥🎿';
+    var usertype = (mothed == "1") ? '支付宝':'微信';
+    window.ap && ap.setNavigationBar({
+        backgroundColor: '#000'
+    });
+    // 来判断是否为第一次进入页面，控制检测订单
+    var refcCode = sessionStorage.getItem('flag');
+    sessionStorage.setItem('flag','true');
+
+</script>
+<script src="/palm-restrant/js/pages/first.js?1.1.190420"></script>
+<!-- Matomo -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    // you can set up to 5 custom variables for each visitor
+    _paq.push(["setCustomVariable", 1, "userId", userId, "visit"]);
+    _paq.push(["setCustomVariable", 2, "userType", usertype, "visit"]);
+    _paq.push(['setUserId', '[' + userId + ']' + userName]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u = matomoUrl;
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', matomoId]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+<!-- End Matomo Code -->
+</body>
+</html>
+2019-05-21 23:04:11,385 - INFO - MainThread - baseApi - 用例测试结果:   d00---->pass
+2019-05-21 23:04:11,463 - WARNING - MainThread - baseApi - 请求headers 为空
+2019-05-21 23:04:11,463 - INFO - MainThread - baseApi - *******正在执行用例：-----  d01  ----**********
+2019-05-21 23:04:11,463 - INFO - MainThread - baseApi - 请求方式：get, 请求url:http://www.baidu.com
+2019-05-21 23:04:11,463 - INFO - MainThread - baseApi - 请求params：{'tableKey': '201905217131C9157F2D4FE3A59C111'}
+2019-05-21 23:04:11,463 - WARNING - MainThread - baseApi - 请求dody 为空
+2019-05-21 23:04:11,463 - WARNING - MainThread - baseApi - 请求body_type 为空
+2019-05-21 23:04:11,523 - INFO - MainThread - baseApi - 返回信息：<!DOCTYPE html>
+<!--STATUS OK--><html> <head><meta http-equiv=content-type content=text/html;charset=utf-8><meta http-equiv=X-UA-Compatible content=IE=Edge><meta content=always name=referrer><link rel=stylesheet type=text/css href=http://s1.bdstatic.com/r/www/cache/bdorz/baidu.min.css><title>百度一下，你就知道</title></head> <body link=#0000cc> <div id=wrapper> <div id=head> <div class=head_wrapper> <div class=s_form> <div class=s_form_wrapper> <div id=lg> <img hidefocus=true src=//www.baidu.com/img/bd_logo1.png width=270 height=129> </div> <form id=form name=f action=//www.baidu.com/s class=fm> <input type=hidden name=bdorz_come value=1> <input type=hidden name=ie value=utf-8> <input type=hidden name=f value=8> <input type=hidden name=rsv_bp value=1> <input type=hidden name=rsv_idx value=1> <input type=hidden name=tn value=baidu><span class="bg s_ipt_wr"><input id=kw name=wd class=s_ipt value maxlength=255 autocomplete=off autofocus></span><span class="bg s_btn_wr"><input type=submit id=su value=百度一下 class="bg s_btn"></span> </form> </div> </div> <div id=u1> <a href=http://news.baidu.com name=tj_trnews class=mnav>新闻</a> <a href=http://www.hao123.com name=tj_trhao123 class=mnav>hao123</a> <a href=http://map.baidu.com name=tj_trmap class=mnav>地图</a> <a href=http://v.baidu.com name=tj_trvideo class=mnav>视频</a> <a href=http://tieba.baidu.com name=tj_trtieba class=mnav>贴吧</a> <noscript> <a href=http://www.baidu.com/bdorz/login.gif?login&amp;tpl=mn&amp;u=http%3A%2F%2Fwww.baidu.com%2f%3fbdorz_come%3d1 name=tj_login class=lb>登录</a> </noscript> <script>document.write('<a href="http://www.baidu.com/bdorz/login.gif?login&tpl=mn&u='+ encodeURIComponent(window.location.href+ (window.location.search === "" ? "?" : "&")+ "bdorz_come=1")+ '" name="tj_login" class="lb">登录</a>');</script> <a href=//www.baidu.com/more/ name=tj_briicon class=bri style="display: block;">更多产品</a> </div> </div> </div> <div id=ftCon> <div id=ftConw> <p id=lh> <a href=http://home.baidu.com>关于百度</a> <a href=http://ir.baidu.com>About Baidu</a> </p> <p id=cp>&copy;2017&nbsp;Baidu&nbsp;<a href=http://www.baidu.com/duty/>使用百度前必读</a>&nbsp; <a href=http://jianyi.baidu.com/ class=cp-feedback>意见反馈</a>&nbsp;京ICP证030173号&nbsp; <img src=//www.baidu.com/img/gs.gif> </p> </div> </div> </div> </body> </html>
+
+2019-05-21 23:04:11,523 - INFO - MainThread - baseApi - 用例测试结果:   d01---->pass

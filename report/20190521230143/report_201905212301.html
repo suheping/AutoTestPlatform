@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2019-05-21 23:01:44</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:17.825000</p>
+<p class='attribute'><strong>Status:</strong> Pass 2</p>
+
+<p class='description'>用例执行情况</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_process.MyTestCase</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_something_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: hehehhe
+data:{'sheetName': 'Sheet1', 'rowNum': 2, 'caseId': 'c00', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/c/first.do', 'params': '{"message":"xiabuxiabu_7131C9157F2D4FE3A59C_111_2","appid":"wx5e6c20b2d813400b","openid":"${tablekey}"}', 'headers': '{"Accept-Encoding":"gzip, deflate"}', 'bodyType': '', 'body': '', 'checkpoint': '白广路', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': '{"tablekey":"tableKey = \'(.+?)\';"}'}
+
+testdata:{'sheetName': 'Sheet1', 'rowNum': 2, 'caseId': 'c00', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/c/first.do', 'params': '{"message":"xiabuxiabu_7131C9157F2D4FE3A59C_111_2","appid":"wx5e6c20b2d813400b","openid":"${tablekey}"}', 'headers': '{"Accept-Encoding":"gzip, deflate"}', 'bodyType': '', 'body': '', 'checkpoint': '白广路', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': '{"tablekey":"tableKey = \'(.+?)\';"}'}
+result:{'sheetName': 'Sheet1', 'id': 'c00', 'rowNum': 2, 'statusCode': '200', 'text': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\t&lt;head&gt;\n\t\t\n\t\t\n\t\t \n\t\t\n\t\t&lt;base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" /&gt;\n\t\t&lt;title&gt;错误&lt;/title&gt;\n\t\t&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;\n\t\t&lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"&gt;\n\t\t&lt;meta name="description" content="错误"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/weui.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/swiper.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/main.css"&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fontSize.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fastclick.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"&gt;&lt;/script&gt;\n\t&lt;/head&gt;\n\n\t&lt;body class="top_bottom_index_body"&gt;\n\t\t&lt;div style="margin-top: 150px;text-align: center; padding:0 15px"&gt;\n\t\t\t&lt;img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px"&gt;\n\t\t\t&lt;h2&gt;&lt;/h2&gt;\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t&lt;h4 class="error-msg" style="color: #5a5a5a"&gt;用户授权过期，请重新扫码！&lt;/h4&gt;\n\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t&lt;/div&gt;\n\t\t&lt;script&gt;\n\t\t\t$(function() {\n\t\t\t\tFastClick.attach(document.body);\n\t\t\t});\n\t\t\tpushHistory();\n\t\t\twindow.addEventListener("popstate", function(e) { \n\t\t\t\t    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 \n\t\t\t\t    //alert(111);\n\t\t\t\t\twindow.location = "/palm-restrant/c/first.do?message=用户授权过期，请重新扫码！";\n\t\t\t\t   }, false); \n\t\t\tfunction pushHistory() { \n\t\t\t\twindow.history.pushState({}, "title", "c/first.do?message=用户授权过期，请重新扫码！#back"); \n\t\t\t}\n\t\t&lt;/script&gt;\n\t&lt;/body&gt;\n\n&lt;/html&gt;', 'times': '0.778338', 'error': '', 'result': 'fail'}
+data:{'sheetName': 'Sheet1', 'rowNum': 3, 'caseId': 'c01', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/meal/checkOrder.do', 'params': '{"tableKey":"${tablekey}"}', 'headers': '{"Accept-Encoding":"gzip, deflate"}', 'bodyType': '', 'body': '', 'checkpoint': '0', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+
+testdata:{'sheetName': 'Sheet1', 'rowNum': 3, 'caseId': 'c01', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/meal/checkOrder.do', 'params': '{"tableKey":""}', 'headers': '{"Accept-Encoding":"gzip, deflate"}', 'bodyType': '', 'body': '', 'checkpoint': '0', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+result:{'sheetName': 'Sheet1', 'id': 'c01', 'rowNum': 3, 'statusCode': '200', 'text': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\t&lt;head&gt;\n\t\t\n\t\t\n\t\t \n\t\t\n\t\t&lt;base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" /&gt;\n\t\t&lt;title&gt;错误&lt;/title&gt;\n\t\t&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;\n\t\t&lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"&gt;\n\t\t&lt;meta name="description" content="错误"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/weui.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/swiper.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/main.css"&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fontSize.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fastclick.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"&gt;&lt;/script&gt;\n\t&lt;/head&gt;\n\n\t&lt;body class="top_bottom_index_body"&gt;\n\t\t&lt;div style="margin-top: 150px;text-align: center; padding:0 15px"&gt;\n\t\t\t&lt;img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px"&gt;\n\t\t\t&lt;h2&gt;&lt;/h2&gt;\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t&lt;h4 class="error-msg" style="color: #5a5a5a"&gt;订单已取消或完成，请重新扫码！&lt;/h4&gt;\n\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t&lt;/div&gt;\n\t\t&lt;script&gt;\n\t\t\t$(function() {\n\t\t\t\tFastClick.attach(document.body);\n\t\t\t});\n\t\t\tpushHistory();\n\t\t\twindow.addEventListener("popstate", function(e) { \n\t\t\t\t    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 \n\t\t\t\t    //alert(111);\n\t\t\t\t\twindow.location = "/palm-restrant/c/first.do?message=订单已取消或完成，请重新扫码！";\n\t\t\t\t   }, false); \n\t\t\tfunction pushHistory() { \n\t\t\t\twindow.history.pushState({}, "title", "c/first.do?message=订单已取消或完成，请重新扫码！#back"); \n\t\t\t}\n\t\t&lt;/script&gt;\n\t&lt;/body&gt;\n\n&lt;/html&gt;', 'times': '0.040663', 'error': '', 'result': 'pass'}
+data:{'sheetName': 'Sheet1', 'rowNum': 4, 'caseId': 'c02', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/meal/preSelect.do', 'params': '{"tableKey":"${tablekey}"}', 'headers': '', 'bodyType': '', 'body': '', 'checkpoint': '选择锅底', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+
+testdata:{'sheetName': 'Sheet1', 'rowNum': 4, 'caseId': 'c02', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/meal/preSelect.do', 'params': '{"tableKey":""}', 'headers': '', 'bodyType': '', 'body': '', 'checkpoint': '选择锅底', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+result:{'sheetName': 'Sheet1', 'id': 'c02', 'rowNum': 4, 'statusCode': '200', 'text': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\t&lt;head&gt;\n\t\t\n\t\t\n\t\t \n\t\t\n\t\t&lt;base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" /&gt;\n\t\t&lt;title&gt;错误&lt;/title&gt;\n\t\t&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;\n\t\t&lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"&gt;\n\t\t&lt;meta name="description" content="错误"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/weui.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/swiper.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/main.css"&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fontSize.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fastclick.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"&gt;&lt;/script&gt;\n\t&lt;/head&gt;\n\n\t&lt;body class="top_bottom_index_body"&gt;\n\t\t&lt;div style="margin-top: 150px;text-align: center; padding:0 15px"&gt;\n\t\t\t&lt;img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px"&gt;\n\t\t\t&lt;h2&gt;&lt;/h2&gt;\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t&lt;h4 class="error-msg" style="color: #5a5a5a"&gt;订单已取消或完成，请重新扫码！&lt;/h4&gt;\n\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t&lt;/div&gt;\n\t\t&lt;script&gt;\n\t\t\t$(function() {\n\t\t\t\tFastClick.attach(document.body);\n\t\t\t});\n\t\t\tpushHistory();\n\t\t\twindow.addEventListener("popstate", function(e) { \n\t\t\t\t    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 \n\t\t\t\t    //alert(111);\n\t\t\t\t\twindow.location = "/palm-restrant/c/first.do?message=订单已取消或完成，请重新扫码！";\n\t\t\t\t   }, false); \n\t\t\tfunction pushHistory() { \n\t\t\t\twindow.history.pushState({}, "title", "c/first.do?message=订单已取消或完成，请重新扫码！#back"); \n\t\t\t}\n\t\t&lt;/script&gt;\n\t&lt;/body&gt;\n\n&lt;/html&gt;', 'times': '0.037121', 'error': '', 'result': 'fail'}
+data:{'sheetName': 'Sheet1', 'rowNum': 5, 'caseId': 'c03', 'method': 'post', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/meal/setOrderObj.do', 'params': '{"tableKey":"${tablekey}"}', 'headers': '{"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"}', 'bodyType': '', 'body': '{"id":"","vcode":"811127","tables":"112","openid":"o29U5wq7XF-OutcJRojtmO2exjhY","firmid":"7131C9157F2D4FE3A59C","firmdes":"白广路","listNetOrderDtl[0].foodsid":"E646D9DB4FEA4BAB898A","listNetOrderDtl[0].ordersid":"","listNetOrderDtl[0].foodsname":"美姬松茸菌菇锅底","listNetOrderDtl[0].foodnum":"1","listNetOrderDtl[0].price":"20.00","listNetOrderDtl[0].nprice":"20.00","listNetOrderDtl[0].ispackage":"0","listNetOrderDtl[0].grptyp":"105","listNetOrderDtl[0].grpcode":"10501","listNetOrderDtl[0].pcode":"10501010","listNetOrderDtl[0].unit":"份","listNetOrderDtl[0].unitcode":"101","listNetOrderDtl[0].seq":"E646D9DB4FEA4BAB898A_0","listNetOrderDtl[0].vunitprice":"1","listNetOrderDtl[0].totalprice":"20.00","listNetOrderDtl[0].vipTotalprice":"20.00","money":"20.00","sumprice":"20.00"}', 'checkpoint': '', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+
+testdata:{'sheetName': 'Sheet1', 'rowNum': 5, 'caseId': 'c03', 'method': 'post', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/meal/setOrderObj.do', 'params': '{"tableKey":""}', 'headers': '{"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"}', 'bodyType': '', 'body': '{"id":"","vcode":"811127","tables":"112","openid":"o29U5wq7XF-OutcJRojtmO2exjhY","firmid":"7131C9157F2D4FE3A59C","firmdes":"白广路","listNetOrderDtl[0].foodsid":"E646D9DB4FEA4BAB898A","listNetOrderDtl[0].ordersid":"","listNetOrderDtl[0].foodsname":"美姬松茸菌菇锅底","listNetOrderDtl[0].foodnum":"1","listNetOrderDtl[0].price":"20.00","listNetOrderDtl[0].nprice":"20.00","listNetOrderDtl[0].ispackage":"0","listNetOrderDtl[0].grptyp":"105","listNetOrderDtl[0].grpcode":"10501","listNetOrderDtl[0].pcode":"10501010","listNetOrderDtl[0].unit":"份","listNetOrderDtl[0].unitcode":"101","listNetOrderDtl[0].seq":"E646D9DB4FEA4BAB898A_0","listNetOrderDtl[0].vunitprice":"1","listNetOrderDtl[0].totalprice":"20.00","listNetOrderDtl[0].vipTotalprice":"20.00","money":"20.00","sumprice":"20.00"}', 'checkpoint': '', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+result:{'sheetName': 'Sheet1', 'id': 'c03', 'rowNum': 5, 'statusCode': '200', 'text': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\t&lt;head&gt;\n\t\t\n\t\t\n\t\t \n\t\t\n\t\t&lt;base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" /&gt;\n\t\t&lt;title&gt;错误&lt;/title&gt;\n\t\t&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;\n\t\t&lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"&gt;\n\t\t&lt;meta name="description" content="错误"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/weui.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/swiper.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/main.css"&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fontSize.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fastclick.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"&gt;&lt;/script&gt;\n\t&lt;/head&gt;\n\n\t&lt;body class="top_bottom_index_body"&gt;\n\t\t&lt;div style="margin-top: 150px;text-align: center; padding:0 15px"&gt;\n\t\t\t&lt;img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px"&gt;\n\t\t\t&lt;h2&gt;&lt;/h2&gt;\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t&lt;h4 class="error-msg" style="color: #5a5a5a"&gt;订单已取消或完成，请重新扫码！&lt;/h4&gt;\n\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t&lt;/div&gt;\n\t\t&lt;script&gt;\n\t\t\t$(function() {\n\t\t\t\tFastClick.attach(document.body);\n\t\t\t});\n\t\t\tpushHistory();\n\t\t\twindow.addEventListener("popstate", function(e) { \n\t\t\t\t    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 \n\t\t\t\t    //alert(111);\n\t\t\t\t\twindow.location = "/palm-restrant/c/first.do?message=订单已取消或完成，请重新扫码！";\n\t\t\t\t   }, false); \n\t\t\tfunction pushHistory() { \n\t\t\t\twindow.history.pushState({}, "title", "c/first.do?message=订单已取消或完成，请重新扫码！#back"); \n\t\t\t}\n\t\t&lt;/script&gt;\n\t&lt;/body&gt;\n\n&lt;/html&gt;', 'times': '0.034829', 'error': '', 'result': 'pass'}
+data:{'sheetName': 'Sheet1', 'rowNum': 6, 'caseId': 'c04', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/meal/menu.do', 'params': '{"tableKey":"${tablekey}","soupOrder":"Y"}', 'headers': '', 'bodyType': '', 'body': '', 'checkpoint': '足味虾滑', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+
+testdata:{'sheetName': 'Sheet1', 'rowNum': 6, 'caseId': 'c04', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/meal/menu.do', 'params': '{"tableKey":"","soupOrder":"Y"}', 'headers': '', 'bodyType': '', 'body': '', 'checkpoint': '足味虾滑', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+result:{'sheetName': 'Sheet1', 'id': 'c04', 'rowNum': 6, 'statusCode': '200', 'text': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\t&lt;head&gt;\n\t\t\n\t\t\n\t\t \n\t\t\n\t\t&lt;base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/" /&gt;\n\t\t&lt;title&gt;错误&lt;/title&gt;\n\t\t&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;\n\t\t&lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"&gt;\n\t\t&lt;meta name="description" content="错误"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/weui.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/swiper.min.css"&gt;\n\t\t&lt;link rel="stylesheet" href="/palm-restrant/css/main.css"&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fontSize.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-1.11.0.min.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/fastclick.js"&gt;&lt;/script&gt;\n\t\t&lt;script type="text/javascript" src="/palm-restrant/js/jquery-weui.js"&gt;&lt;/script&gt;\n\t&lt;/head&gt;\n\n\t&lt;body class="top_bottom_index_body"&gt;\n\t\t&lt;div style="margin-top: 150px;text-align: center; padding:0 15px"&gt;\n\t\t\t&lt;img src="/palm-restrant/img/side.png" alt="" style="width: 80px;margin-right: -20px;margin-bottom: 20px"&gt;\n\t\t\t&lt;h2&gt;&lt;/h2&gt;\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t&lt;h4 class="error-msg" style="color: #5a5a5a"&gt;订单已取消或完成，请重新扫码！&lt;/h4&gt;\n\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t&lt;/div&gt;\n\t\t&lt;script&gt;\n\t\t\t$(function() {\n\t\t\t\tFastClick.attach(document.body);\n\t\t\t});\n\t\t\tpushHistory();\n\t\t\twindow.addEventListener("popstate", function(e) { \n\t\t\t\t    //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 \n\t\t\t\t    //alert(111);\n\t\t\t\t\twindow.location = "/palm-restrant/c/first.do?message=订单已取消或完成，请重新扫码！";\n\t\t\t\t   }, false); \n\t\t\tfunction pushHistory() { \n\t\t\t\twindow.history.pushState({}, "title", "c/first.do?message=订单已取消或完成，请重新扫码！#back"); \n\t\t\t}\n\t\t&lt;/script&gt;\n\t&lt;/body&gt;\n\n&lt;/html&gt;', 'times': '0.035717', 'error': '', 'result': 'fail'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_something_2</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: hehehhe
+data:{'sheetName': 'Sheet2', 'rowNum': 2, 'caseId': 'd00', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/c/first.do', 'params': '{"message":"xiabuxiabu_7131C9157F2D4FE3A59C_111_2","appid":"wx5e6c20b2d813400b","openid":"o29U5wq7XF-OutcJRojtmO2exjhY"}', 'headers': '{"Accept-Encoding":"gzip, deflate"}', 'bodyType': '', 'body': '', 'checkpoint': '白广路', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': '{"tablekey":"tableKey = \'(.+?)\';"}'}
+
+testdata:{'sheetName': 'Sheet2', 'rowNum': 2, 'caseId': 'd00', 'method': 'get', 'url': 'http://palmrest.tst.choicesaas.cn/palm-restrant/c/first.do', 'params': '{"message":"xiabuxiabu_7131C9157F2D4FE3A59C_111_2","appid":"wx5e6c20b2d813400b","openid":"o29U5wq7XF-OutcJRojtmO2exjhY"}', 'headers': '{"Accept-Encoding":"gzip, deflate"}', 'bodyType': '', 'body': '', 'checkpoint': '白广路', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': '{"tablekey":"tableKey = \'(.+?)\';"}'}
+result:{'sheetName': 'Sheet2', 'id': 'd00', 'rowNum': 2, 'statusCode': '200', 'text': '&lt;!DOCTYPE html&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;\r\n    \r\n    \r\n    \r\n    \r\n    \r\n    &lt;base href="http://palmrest.tst.choicesaas.cn:80/palm-restrant/"/&gt;\r\n    &lt;meta charset="utf-8"/&gt;\r\n    &lt;title&gt;欢迎光临&lt;/title&gt;\r\n    &lt;meta charset="utf-8"&gt;\r\n    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;\r\n    &lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"&gt;\r\n    &lt;meta name="description" content="点餐欢迎页"&gt;\r\n    &lt;script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js"&gt;&lt;/script&gt;\r\n    &lt;link rel="stylesheet" href="/palm-restrant/css/weui.min.css"&gt;\r\n    &lt;link rel="stylesheet" href="/palm-restrant/css/jquery-weui.css"&gt;\r\n    &lt;link rel="stylesheet" href="/palm-restrant/css/font-awesome.min.css"&gt;\r\n    \r\n        \r\n            &lt;link rel="stylesheet" href="/palm-restrant/css/main_golden.css"&gt;\r\n        \r\n        \r\n    \r\n    &lt;style&gt;\r\n        html, body {\r\n            width: 100%;\r\n            height: 100%\r\n        }\r\n\r\n        .bgWelcome {\r\n            background-image: url(/palm-restrant/img/new_img/wellcomBG.jpg);\r\n            background-size: cover;\r\n            background-position: center;\r\n        }\r\n\r\n        .welcome .shopName {\r\n            top: 15%\r\n        }\r\n\r\n        .welcome .logo {\r\n            width: 40%;\r\n        }\r\n\r\n        .conten-box{\r\n            text-align: center;\r\n            position: fixed;\r\n            width: 100%;\r\n            bottom: 70px;\r\n        }\r\n\r\n        .conten-box .shopName h5{\r\n            color: #fff;\r\n            font-size: 20px;\r\n        }\r\n        .conten-box .shopName .subTit{\r\n            color: #fff;\r\n            font-size: 14px;\r\n        }\r\n\r\n        .welcome .btnCont{\r\n            padding: 15px 0;\r\n        }\r\n        .welcome .btnCont .weui_btn{\r\n            width: 210px;\r\n            background: rgba(75,55,46,0.5);\r\n            border: none;\r\n        }\r\n        .logo{\r\n            position: fixed;\r\n            top:20px;\r\n            left: 20px;\r\n            width: 100px;\r\n        }\r\n        .tableNum{\r\n            width: 100%;\r\n            text-align: center;\r\n            font-size: 17px;\r\n            color: #fff;\r\n        }\r\n        .perInfo{\r\n            font-size: .32rem;\r\n            width: 100%;\r\n            height: 20px;\r\n            line-height: 20px;\r\n            color: #C8A063 ;\r\n            margin-top: 1rem;\r\n            margin-bottom: .2rem;\r\n        }\r\n        .perInfo .word{\r\n            display:inline-block;\r\n            padding-right: .2rem;\r\n            border-right: 1px solid #C8A063 ;\r\n        }\r\n        .perInfo .myOrder{\r\n            padding-left: .2rem;\r\n        }\r\n        .shopLogo img{\r\n            width: 18%;\r\n            -webkit-border-radius: 5px;\r\n            -moz-border-radius: 5px;\r\n            border-radius: 5px;\r\n        }\r\n        .welcome .shopAction .content{\r\n            width: 6.3rem;\r\n        }\r\n        .welcome .btnCont .toMeal{\r\n            width: 100%;\r\n            height: 0.9rem;\r\n            line-height: 0.9rem;\r\n            background: #C8A063;\r\n            color: #fff;\r\n        }\r\n    &lt;/style&gt;\r\n\r\n&lt;/head&gt;\r\n&lt;body class="bgWelcome" ontouchstart="util.isIOS() &amp;&amp; event.preventDefault()"&gt;\r\n&lt;div class="welcome"&gt;\r\n    &lt;div class="conten-box"&gt;\r\n        &lt;div class="shopLogo"&gt;\r\n            &lt;img src="/palm-restrant/img/new_img/logo.png" alt=""&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class="shopName"&gt;\r\n            &lt;h5&gt;呷哺呷哺-白广路店&lt;/h5&gt;\r\n        &lt;/div&gt;\r\n        \r\n            &lt;div class="tableNum"&gt;\r\n                    111号桌\r\n            &lt;/div&gt;\r\n        \r\n        &lt;div class="perInfo"&gt;\r\n            &lt;span class="word" onclick="toCard();"&gt; 会员中心 &lt;/span&gt;&lt;span class="myOrder" onclick="toOrder()"&gt;我的订单&lt;/span&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class="shopAction"&gt;\r\n            &lt;div class="content"&gt;\r\n                &lt;div class="btnCont"&gt;\r\n                    &lt;a href="javascript:void(0); " class="weui_btn weui_btn_plain_white toMeal" onclick="toMeal();"&gt;点单&lt;/a&gt;\r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n    &lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;script src="/palm-restrant/js/jquery-1.11.0.min.js"&gt;&lt;/script&gt;\r\n&lt;script src="/palm-restrant/js/layer/layer.js"&gt;&lt;/script&gt;\r\n&lt;link rel="stylesheet" href="/palm-restrant/css/new_layer.css"&gt;\r\n&lt;script src="/palm-restrant/js/fastclick.js"&gt;&lt;/script&gt;\r\n&lt;script src="/palm-restrant/js/layerUtil.js?1.1.190420"&gt;&lt;/script&gt;\r\n&lt;script src="/palm-restrant/js/utils.js?1.1.190420"&gt;&lt;/script&gt;\r\n&lt;script&gt;\r\n    var rootPath = \'/palm-restrant\';\r\n    var tableKey = \'201905217131C9157F2D4FE3A59C111\'; // 桌台码\r\n    var tableFee = \'\'; // 台位费\r\n    var memberType = \'yzMember\'; // 会员类型\r\n    var mothed = \'2\';  // 支付宝 或 微信\r\n    var orderKey = \'\';\r\n    var payOrderKey = \'\';\r\n    var havePrePayOrder = ""; // 是否存在预点餐先支付的订单\r\n    var payIn = \'\'; // 已下单未支付\r\n    var isPrePayOrder = "N"; // 是否存在预点餐先支付的订单\r\n    var codepay = \'\';\r\n    var isScanPay = \'\';\r\n    var hasNotPayOrders = \'\';\r\n    var orderId = \'\';\r\n    var customerNum = \'\';\r\n    var userId = \'o29U5wq7XF-OutcJRojtmO2exjhY\';\r\n    var firmId = \'\';\r\n    var availableTable = \'\';\r\n    var subtables = \'\';\r\n    var matomoId = \'16\';\r\n    var matomoUrl = \'//piwik.choicesaas.cn/\';\r\n    var userName = \'飘流的泥🎿\';\r\n    var usertype = (mothed == "1") ? \'支付宝\':\'微信\';\r\n    window.ap &amp;&amp; ap.setNavigationBar({\r\n        backgroundColor: \'#000\'\r\n    });\r\n    // 来判断是否为第一次进入页面，控制检测订单\r\n    var refcCode = sessionStorage.getItem(\'flag\');\r\n    sessionStorage.setItem(\'flag\',\'true\');\r\n\r\n&lt;/script&gt;\r\n&lt;script src="/palm-restrant/js/pages/first.js?1.1.190420"&gt;&lt;/script&gt;\r\n&lt;!-- Matomo --&gt;\r\n&lt;script type="text/javascript"&gt;\r\n    var _paq = _paq || [];\r\n    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */\r\n    // you can set up to 5 custom variables for each visitor\r\n    _paq.push(["setCustomVariable", 1, "userId", userId, "visit"]);\r\n    _paq.push(["setCustomVariable", 2, "userType", usertype, "visit"]);\r\n    _paq.push([\'setUserId\', \'[\' + userId + \']\' + userName]);\r\n    _paq.push([\'trackPageView\']);\r\n    _paq.push([\'enableLinkTracking\']);\r\n    (function() {\r\n        var u = matomoUrl;\r\n        _paq.push([\'setTrackerUrl\', u+\'piwik.php\']);\r\n        _paq.push([\'setSiteId\', matomoId]);\r\n        var d=document, g=d.createElement(\'script\'), s=d.getElementsByTagName(\'script\')[0];\r\n        g.type=\'text/javascript\'; g.async=true; g.defer=true; g.src=u+\'piwik.js\'; s.parentNode.insertBefore(g,s);\r\n    })();\r\n&lt;/script&gt;\r\n&lt;!-- End Matomo Code --&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;', 'times': '16.155491', 'error': '', 'result': 'pass'}
+data:{'sheetName': 'Sheet2', 'rowNum': 3, 'caseId': 'd01', 'method': 'get', 'url': 'http://www.baidu.com', 'params': '{"tableKey":"${tablekey}"}', 'headers': '', 'bodyType': '', 'body': '', 'checkpoint': '百度一下', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+
+testdata:{'sheetName': 'Sheet2', 'rowNum': 3, 'caseId': 'd01', 'method': 'get', 'url': 'http://www.baidu.com', 'params': '{"tableKey":"201905217131C9157F2D4FE3A59C111"}', 'headers': '', 'bodyType': '', 'body': '', 'checkpoint': '百度一下', 'status_code': '', 'text': '', 'error': '', 'times': '', 'result': '', 'case_type': '1', 're': ''}
+result:{'sheetName': 'Sheet2', 'id': 'd01', 'rowNum': 3, 'statusCode': '200', 'text': '&lt;!DOCTYPE html&gt;\r\n&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt;&lt;meta http-equiv=content-type content=text/html;charset=utf-8&gt;&lt;meta http-equiv=X-UA-Compatible content=IE=Edge&gt;&lt;meta content=always name=referrer&gt;&lt;link rel=stylesheet type=text/css href=http://s1.bdstatic.com/r/www/cache/bdorz/baidu.min.css&gt;&lt;title&gt;百度一下，你就知道&lt;/title&gt;&lt;/head&gt; &lt;body link=#0000cc&gt; &lt;div id=wrapper&gt; &lt;div id=head&gt; &lt;div class=head_wrapper&gt; &lt;div class=s_form&gt; &lt;div class=s_form_wrapper&gt; &lt;div id=lg&gt; &lt;img hidefocus=true src=//www.baidu.com/img/bd_logo1.png width=270 height=129&gt; &lt;/div&gt; &lt;form id=form name=f action=//www.baidu.com/s class=fm&gt; &lt;input type=hidden name=bdorz_come value=1&gt; &lt;input type=hidden name=ie value=utf-8&gt; &lt;input type=hidden name=f value=8&gt; &lt;input type=hidden name=rsv_bp value=1&gt; &lt;input type=hidden name=rsv_idx value=1&gt; &lt;input type=hidden name=tn value=baidu&gt;&lt;span class="bg s_ipt_wr"&gt;&lt;input id=kw name=wd class=s_ipt value maxlength=255 autocomplete=off autofocus&gt;&lt;/span&gt;&lt;span class="bg s_btn_wr"&gt;&lt;input type=submit id=su value=百度一下 class="bg s_btn"&gt;&lt;/span&gt; &lt;/form&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=u1&gt; &lt;a href=http://news.baidu.com name=tj_trnews class=mnav&gt;新闻&lt;/a&gt; &lt;a href=http://www.hao123.com name=tj_trhao123 class=mnav&gt;hao123&lt;/a&gt; &lt;a href=http://map.baidu.com name=tj_trmap class=mnav&gt;地图&lt;/a&gt; &lt;a href=http://v.baidu.com name=tj_trvideo class=mnav&gt;视频&lt;/a&gt; &lt;a href=http://tieba.baidu.com name=tj_trtieba class=mnav&gt;贴吧&lt;/a&gt; &lt;noscript&gt; &lt;a href=http://www.baidu.com/bdorz/login.gif?login&amp;amp;tpl=mn&amp;amp;u=http%3A%2F%2Fwww.baidu.com%2f%3fbdorz_come%3d1 name=tj_login class=lb&gt;登录&lt;/a&gt; &lt;/noscript&gt; &lt;script&gt;document.write(\'&lt;a href="http://www.baidu.com/bdorz/login.gif?login&amp;tpl=mn&amp;u=\'+ encodeURIComponent(window.location.href+ (window.location.search === "" ? "?" : "&amp;")+ "bdorz_come=1")+ \'" name="tj_login" class="lb"&gt;登录&lt;/a&gt;\');&lt;/script&gt; &lt;a href=//www.baidu.com/more/ name=tj_briicon class=bri style="display: block;"&gt;更多产品&lt;/a&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=ftCon&gt; &lt;div id=ftConw&gt; &lt;p id=lh&gt; &lt;a href=http://home.baidu.com&gt;关于百度&lt;/a&gt; &lt;a href=http://ir.baidu.com&gt;About Baidu&lt;/a&gt; &lt;/p&gt; &lt;p id=cp&gt;&amp;copy;2017&amp;nbsp;Baidu&amp;nbsp;&lt;a href=http://www.baidu.com/duty/&gt;使用百度前必读&lt;/a&gt;&amp;nbsp; &lt;a href=http://jianyi.baidu.com/ class=cp-feedback&gt;意见反馈&lt;/a&gt;&amp;nbsp;京ICP证030173号&amp;nbsp; &lt;img src=//www.baidu.com/img/gs.gif&gt; &lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;\r\n', 'times': '0.051422', 'error': '', 'result': 'pass'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

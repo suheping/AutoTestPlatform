@@ -1,0 +1,2 @@
+2019-05-22 13:41:56,121 - ERROR - MainThread - regFindString - re字段不是标准json，请确认！,报错信息如下：
+ Expecting ',' delimiter: line 1 column 30 (char 29)

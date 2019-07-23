@@ -1,0 +1,15 @@
+2019-05-22 09:40:38,592 - WARNING - MainThread - test_process - 用例c01 没有关联参数
+2019-05-22 09:40:38,592 - WARNING - MainThread - baseApi - 请求params 为空
+2019-05-22 09:40:38,592 - INFO - MainThread - baseApi - *******正在执行用例：-----  c01  ----**********
+2019-05-22 09:40:38,592 - INFO - MainThread - baseApi - 请求方式：post, 请求url:http://yun.choicesaas.cn/cloud/api/auth/login
+2019-05-22 09:40:38,592 - INFO - MainThread - baseApi - 请求params：None
+2019-05-22 09:40:38,593 - INFO - MainThread - baseApi - post请求body类型为：json，body内容为：{"username": "18005410350", "password": "WK123456"}
+2019-05-22 09:40:38,719 - INFO - MainThread - baseApi - 返回信息：{"code":"10000","msg":"success","data":{"accessToken":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiIl0sInVzZXJfbmFtZSI6IntcIm1vYmlsZVwiOlwiMTgwMDU0MTAzNTBcIixcImFpZFwiOlwiNDdlMzYyNjZlNWFhNDc3ZThkYjlmZGM2ZjEyMTdjZDBcIixcInVpZFwiOlwiLTFcIixcInRpZFwiOlwiNWFiZjAwMTc5NmQxOTAwMDBkMDdhNTlhXCIsXCJzaWRcIjpcIjc0YTFhM2M4LWY1YzMtNDlhNi1hYzYyLTY5MjY5OGNjYWJiNVwiLFwiYXRva2VuXCI6XCIyNzViN2I5ZmZkZDc0ZWNiODkxZjVjM2JmYTEyYWU5Y1wifSIsInNjb3BlIjpbInNjb3BlIl0sImV4cCI6MTU1ODQ5MTA0MCwiYXV0aG9yaXRpZXMiOlsiVVNFUiJdLCJqdGkiOiJiZDBiNTQ5NC0wNTg3LTQ5YjQtOGM5MC02YTU3YTI3MmZlNjUiLCJjbGllbnRfaWQiOiJCcm93c2VyIn0.kXB46jMVXSGLe7LHfndBOLp7TZt7r2i_JtOo57PQ9U_GXQZLzCL7rdN9wf3mKfmPwuqxxfF6KEOfFxjw8y1qH_CMrChW_rqhtA9n7KEloV61lnhKROjyhHSoQFk_3i_01U46hYJNJ1GUkX2yQ3N1IpKI7C4slb-3XhFJYpzTzMs","refreshToken":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiIl0sInVzZXJfbmFtZSI6IntcIm1vYmlsZVwiOlwiMTgwMDU0MTAzNTBcIixcImFpZFwiOlwiNDdlMzYyNjZlNWFhNDc3ZThkYjlmZGM2ZjEyMTdjZDBcIixcInVpZFwiOlwiLTFcIixcInRpZFwiOlwiNWFiZjAwMTc5NmQxOTAwMDBkMDdhNTlhXCIsXCJzaWRcIjpcIjc0YTFhM2M4LWY1YzMtNDlhNi1hYzYyLTY5MjY5OGNjYWJiNVwiLFwiYXRva2VuXCI6XCIyNzViN2I5ZmZkZDc0ZWNiODkxZjVjM2JmYTEyYWU5Y1wifSIsInNjb3BlIjpbInNjb3BlIl0sImF0aSI6ImJkMGI1NDk0LTA1ODctNDliNC04YzkwLTZhNTdhMjcyZmU2NSIsImV4cCI6MTU1ODQ5NjQ0MCwiYXV0aG9yaXRpZXMiOlsiVVNFUiJdLCJqdGkiOiIyNDBhNWM4YS0wNmM2LTQxOGItYmIzOC1mYWNlN2VhMTEwM2IiLCJjbGllbnRfaWQiOiJCcm93c2VyIn0.TqebBQb9OxryiAJ6I3AojD3h4dMrs5KnZs_F7ZNwnRq_ZBLXsXHz2pt1qLy_I_vA_Py8CtWDvkecEZiHUAXP4JUZMErKi_-B4zYYr-wVsEjCYsHfACqtDcdED2jJxJONlfqdXfVspuBczAFC-fcEub74alXg-RK3WP6LVNoY41g._58eebbfcd1c14e47b8863af105ef8f2e_."}}
+2019-05-22 09:40:38,719 - INFO - MainThread - baseApi - 用例测试结果:   c01---->pass
+2019-05-22 09:40:38,759 - WARNING - MainThread - baseApi - 请求params 为空
+2019-05-22 09:40:38,759 - INFO - MainThread - baseApi - *******正在执行用例：-----  c02  ----**********
+2019-05-22 09:40:38,759 - INFO - MainThread - baseApi - 请求方式：post, 请求url:http://yun.choicesaas.cn/cloud/api/auth/logout
+2019-05-22 09:40:38,759 - INFO - MainThread - baseApi - 请求params：None
+2019-05-22 09:40:38,760 - INFO - MainThread - baseApi - post请求body类型为：json，body内容为：{"accessToken": "", "refreshToken": ""}
+2019-05-22 09:40:38,828 - INFO - MainThread - baseApi - 返回信息：{"timestamp":1558489240631,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalArgumentException","message":"JWT must have 3 tokens","path":"/api/auth/logout"}
+2019-05-22 09:40:38,828 - INFO - MainThread - baseApi - 用例测试结果:   c02---->fail
