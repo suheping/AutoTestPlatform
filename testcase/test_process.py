@@ -58,6 +58,7 @@ class MyTestCase(unittest.TestCase):
                 data['body'] = replace(data['body'], tmp).replace()
                 data['params'] = replace(data['params'], tmp).replace()
                 data['url'] = replace(data['url'], tmp).replace()
+                data['headers'] = replace(data['headers'], tmp).replace()
             result = sendRequest(self.session,data)
             if data['re']:
                 param = regFindString(result['text'],data['re']).find()

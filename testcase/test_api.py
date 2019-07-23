@@ -49,6 +49,7 @@ class MyTestCase(unittest.TestCase):
                 i['body'] = replace(i['body'], cls.tmp).replace()
                 i['params'] = replace(i['params'], cls.tmp).replace()
                 i['url'] = replace(i['url'], cls.tmp).replace()
+                i['headers'] = replace(i['headers'], cls.tmp).replace()
             # 发送请求
             result = sendRequest(cls.session,i)
             # 如果存在re，就去响应中查找，找到后存到tmp中
@@ -70,6 +71,7 @@ class MyTestCase(unittest.TestCase):
             data['body'] = replace(data['body'], self.tmp).replace()
             data['params'] = replace(data['params'], self.tmp).replace()
             data['url'] = replace(data['url'], self.tmp).replace()
+            data['headers'] = replace(data['headers'], self.tmp).replace()
         # 发送请求
         result = sendRequest(self.session,data)
         # 如果存在re，就去响应中查找，找到后存到tmp中
