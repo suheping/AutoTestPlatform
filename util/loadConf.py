@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/10/12 9:36
 # file:loadConf
@@ -17,10 +17,10 @@ cf.read(confFile, encoding='utf8')
 class loadConf():
 
     @classmethod
-    def get_config(cls,section,option):
+    def get_config(cls, section, option):
         value = ''
         try:
-            value = cf.get(section,option)
+            value = cf.get(section, option)
         except:
             print('section、option填写有误，请检查')
         finally:
@@ -28,9 +28,9 @@ class loadConf():
 
 
 if __name__ == '__main__':
-    x = loadConf.get_config('test_api','report_file')
+    x = loadConf.get_config('test_api', 'report_file')
     print(type(x))
-    y = loadConf.get_config('test_process','data_file')
+    y = loadConf.get_config('test_process', 'data_file')
     print(y)
     # path = os.path.join(confPath,x)
     # print(path)

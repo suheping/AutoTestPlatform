@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/10/8 17:19
 # file:test_process
@@ -9,7 +9,7 @@ import unittest
 import requests
 import os
 import ddt
-from util.baseApi import sendRequest,writeResult,writeResult2
+from util.baseApi import sendRequest, writeResult, writeResult2
 from util.copyXls import copyXls
 from util.readXlsUtil2 import readXlsUtil2
 from util.loadConf import loadConf
@@ -24,14 +24,16 @@ logger = Log("test_process")
 dataPath = glb.dataPath
 reportPath = glb.reportPath
 
-dataXls = os.path.join(dataPath,loadConf.get_config('test_process','data_file'))
-reportXls = os.path.join(reportPath,loadConf.get_config('test_process','report_file'))
+dataXls = os.path.join(
+    dataPath, loadConf.get_config('test_process', 'data_file'))
+reportXls = os.path.join(
+    reportPath, loadConf.get_config('test_process', 'report_file'))
 
 # 读取测试数据
 testData_pre = readXlsUtil2(dataXls).dict_data(0)
 testData_norm = readXlsUtil2(dataXls).dict_data(1)
-print('testData_norm:%s\n'%testData_norm)
-print('testData_pre:%s\n'%testData_pre)
+print('testData_norm:%s\n' % testData_norm)
+print('testData_pre:%s\n' % testData_pre)
 
 
 @ddt.ddt
@@ -47,11 +49,11 @@ class MyTestCase(unittest.TestCase):
         #     writeResult(result,reportXls)
 
     @ddt.data(*testData_norm)
-    def test_something(self,case_data):
+    def test_something(self, case_data):
         # 保存所有从响应中取出来的参数及值
-        tmp ={}
+        tmp = {}
         for data in case_data:
-            print('data:%s\n'%data)
+            print('data:%s\n' % data)
             if tmp == {}:
                 logger.info("用例%s 没有关联参数" % data['caseId'])
             else:
@@ -59,14 +61,15 @@ class MyTestCase(unittest.TestCase):
                 data['params'] = replace(data['params'], tmp).replace()
                 data['url'] = replace(data['url'], tmp).replace()
                 data['headers'] = replace(data['headers'], tmp).replace()
-            result = sendRequest(self.session,data)
+            result = sendRequest(self.session, data)
             if data['re']:
-                param = regFindString(result['text'],data['re']).find()
+                param = regFindString(result['text'], data['re']).find()
                 for i in param:
                     tmp[i] = param[i]
             # writeResult(result,reportXls)
-            writeResult2(result,reportXls)
+            writeResult2(result, reportXls)
         # self.assertEqual(True, False)
+
 
 if __name__ == '__main__':
     unittest.main()

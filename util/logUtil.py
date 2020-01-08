@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/10/12 18:01
 # file:mylog
@@ -12,10 +12,12 @@ logPath = glb.reportPath
 
 if not os.path.exists(logPath):
     os.mkdir(logPath)
-logfile = os.path.join(logPath,'output.log')
+logfile = os.path.join(logPath, 'output.log')
+
 
 class Log(object):
     ''' '''
+
     def __init__(self, name):
         self.logfile = logfile
         self.name = name
@@ -25,7 +27,8 @@ class Log(object):
         handler = logging.FileHandler(self.logfile, encoding='utf-8')
         self.fh = handler
         self.fh.setLevel(logging.DEBUG)
-        self.formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(threadName)s - %(name)s - %(message)s')
+        self.formatter = logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(threadName)s - %(name)s - %(message)s')
         self.fh.setFormatter(self.formatter)
         self.logger.addHandler(self.fh)
         # 输出日志到控制台
@@ -33,7 +36,6 @@ class Log(object):
         self.ch.setLevel(logging.DEBUG)
         self.ch.setFormatter(self.formatter)
         self.logger.addHandler(self.ch)
-
 
     def info(self, msg):
         self.logger.info(msg)
@@ -49,6 +51,7 @@ class Log(object):
 
     def close(self):
         self.logger.removeHandler(self.fh)
+
 
 if __name__ == '__main__':
     logger = Log('testlog')

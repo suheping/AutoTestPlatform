@@ -1,16 +1,18 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/9/29 17:53
 # file:copyXls
 # desc: 复制xls，填写测试结果工具类
 
 import openpyxl
-def copyXls(xlsPath1,xlsPath2):
+
+
+def copyXls(xlsPath1, xlsPath2):
     '''复制xls，复制xlsPath1保存为xlsPath2'''
     wb2 = openpyxl.Workbook()
     wb2.save(xlsPath2)
     # 打开测试数据文件、测试结果文件
-    wb1 = openpyxl.load_workbook(xlsPath1,read_only=True)
+    wb1 = openpyxl.load_workbook(xlsPath1, read_only=True)
     wb2 = openpyxl.load_workbook(xlsPath2)
 
     # 取到所有sheet的名字
@@ -31,7 +33,6 @@ def copyXls(xlsPath1,xlsPath2):
         sheet1 = wb1[i]
         sheet2 = wb2[i]
 
-
         # 测试数据文件中的行数、列数
         rowCount = sheet1.max_row
         colCount = sheet1.max_column
@@ -46,6 +47,7 @@ def copyXls(xlsPath1,xlsPath2):
     wb2.save(xlsPath2)  # 保存数据
     wb1.close()  # 关闭excel
     wb2.close()
+
 
 class writeXls(object):
     '''修改excel数据'''
@@ -72,7 +74,7 @@ if __name__ == '__main__':
     # copyXls('../data/case_process.xlsx','../report/case_process_result.xlsx')
 
     wx = writeXls('../report/case_process_result.xlsx')
-    wx.write2('Sheet1',9,6,'test')
+    wx.write2('Sheet1', 9, 6, 'test')
 
     # wt = writeXls('../report/case1_result.xlsx')
     # wt.write(3,1,'shp')
@@ -92,4 +94,3 @@ if __name__ == '__main__':
     # wb2.save('../report/case1_result.xlsx')
     #
     # wb2.close()
-

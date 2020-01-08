@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/10/20 21:43
 # file:replace
@@ -8,18 +8,20 @@ import re
 from util.regFindString import regFindString
 import json
 
+
 class replace:
-    def __init__(self,old,param):
-       self.old = old
-       self.param = param
+    def __init__(self, old, param):
+        self.old = old
+        self.param = param
 
     def replace(self):
-        l = re.findall("\${(.+?)}", self.old)
+        l = re.findall(r"\${(.+?)}", self.old)
 
         for i in l:
             self.old = self.old.replace("${" + i + "}", self.param[i])
 
         return self.old
+
 
 if __name__ == "__main__":
     # body = '{"tableKey":"${tablekey}","soupOrder":"Y","orderKey":"${orderKey}"}'

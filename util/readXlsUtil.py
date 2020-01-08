@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/9/29 17:29
 # file:readXlsUtil
@@ -6,8 +6,9 @@
 
 import xlrd
 
+
 class readXlsUtil():
-    def __init__(self,xlsPath, sheetName):
+    def __init__(self, xlsPath, sheetName):
         self.data = xlrd.open_workbook(xlsPath)
         self.sheetList = self.data.sheet_names()
         self.table = self.data.sheet_by_name(sheetName)
@@ -18,8 +19,8 @@ class readXlsUtil():
         # 获取总列数
         self.colNum = self.table.ncols
 
-    def dict_data(self,case_type):
-        if self.rowNum <=1:
+    def dict_data(self, case_type):
+        if self.rowNum <= 1:
             print("总行数小于1")
         else:
             r = []
@@ -39,10 +40,11 @@ class readXlsUtil():
                 j += 1
             return r
 
+
 if __name__ == "__main__":
     filepath = '../data/case1.xlsx'
     sheetName = 'Sheet1'
-    data = readXlsUtil(filepath,sheetName)
+    data = readXlsUtil(filepath, sheetName)
 
     case_data = data.dict_data(0)
     print(case_data)

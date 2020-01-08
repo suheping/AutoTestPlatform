@@ -1,11 +1,11 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 
 import unittest
 import ddt
 import os
 import requests
-from util.baseApi import sendRequest,writeResult
+from util.baseApi import sendRequest, writeResult
 from util.copyXls import copyXls
 from util.readXlsUtil import readXlsUtil
 from util.loadConf import loadConf
@@ -18,17 +18,18 @@ from util.regFindString import regFindString
 dataPath = glb.dataPath
 reportPath = glb.reportPath
 
-datafile = loadConf.get_config('test_api','data_file')
-reportfile = loadConf.get_config('test_api','report_file')
+datafile = loadConf.get_config('test_api', 'data_file')
+reportfile = loadConf.get_config('test_api', 'report_file')
 
-dataXls = os.path.join(dataPath,datafile)
-reportXls = os.path.join(reportPath,reportfile)
+dataXls = os.path.join(dataPath, datafile)
+reportXls = os.path.join(reportPath, reportfile)
 
 # 读取测试用例
-testData_pre = readXlsUtil(dataXls,'Sheet1').dict_data(0)
-testData_norm = readXlsUtil(dataXls,'Sheet1').dict_data(1)
+testData_pre = readXlsUtil(dataXls, 'Sheet1').dict_data(0)
+testData_norm = readXlsUtil(dataXls, 'Sheet1').dict_data(1)
 
 logger = Log("test_api")
+
 
 @ddt.ddt
 class MyTestCase(unittest.TestCase):
@@ -36,7 +37,7 @@ class MyTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.session = requests.session()
-        copyXls(dataXls,reportXls)
+        copyXls(dataXls, reportXls)
 
         # 保存所有从响应中取出来的参数及值
         cls.tmp = {}
@@ -51,17 +52,17 @@ class MyTestCase(unittest.TestCase):
                 i['url'] = replace(i['url'], cls.tmp).replace()
                 i['headers'] = replace(i['headers'], cls.tmp).replace()
             # 发送请求
-            result = sendRequest(cls.session,i)
+            result = sendRequest(cls.session, i)
             # 如果存在re，就去响应中查找，找到后存到tmp中
             if i['re']:
-                param = regFindString(result['text'],i['re']).find()
+                param = regFindString(result['text'], i['re']).find()
                 for j in param:
                     cls.tmp[j] = param[j]
             # 写结果
-            writeResult(result,reportXls)
+            writeResult(result, reportXls)
 
     @ddt.data(*testData_norm)
-    def test_something(self,data):
+    def test_something(self, data):
 
         # 判断是否有取到的参数
         if self.tmp == {}:
@@ -73,18 +74,19 @@ class MyTestCase(unittest.TestCase):
             data['url'] = replace(data['url'], self.tmp).replace()
             data['headers'] = replace(data['headers'], self.tmp).replace()
         # 发送请求
-        result = sendRequest(self.session,data)
+        result = sendRequest(self.session, data)
         # 如果存在re，就去响应中查找，找到后存到tmp中
         if data['re']:
             param = regFindString(result['text'], data['re']).find()
             for j in param:
                 self.tmp[j] = param[j]
         # 写结果
-        writeResult(result,reportXls)
+        writeResult(result, reportXls)
         # 开始断言
         check = data['checkpoint']
         resText = result['text']
-        self.assertIn(check,resText)
+        self.assertIn(check, resText)
+
 
 if __name__ == '__main__':
     unittest.main()

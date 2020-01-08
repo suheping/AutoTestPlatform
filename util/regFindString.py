@@ -1,19 +1,20 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/10/20 18:33
 # file:regFindString
 # desc: 通过正则取值,传入多个正则的键值对，返回多个键值对
 
-import re,json
+import re
+import json
 from util.logUtil import Log
 
 logger = Log('regFindString')
 
+
 class regFindString:
-    def __init__(self,str,regs):
+    def __init__(self, str, regs):
         self.str = str
         self.regs = regs
-
 
     def find(self):
         res = {}
@@ -60,16 +61,13 @@ if __name__ == "__main__":
 
     # js3 = "{"tablekey":"tableKey = '(.+?)';","orderid":"orderid = '(.+?)';"}"
 
-    params2 = regFindString(s2,js2).find()
+    params2 = regFindString(s2, js2).find()
 
     print(params2)
     for j in params2:
         tmp[j] = params2[j]
 
     print(tmp)
-
-
-
 
     # body = '{"tableKey":"${tablekey}","soupOrder":"Y","orderKey":"${orderKey}"}'
     #
@@ -79,5 +77,3 @@ if __name__ == "__main__":
     # for i in l:
     #     body = body.replace("${"+ i +"}",params[i])
     # print(body)
-
-

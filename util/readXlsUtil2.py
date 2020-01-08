@@ -1,15 +1,17 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/10/16 14:40
 # file:readXlsUtil2
 # desc: 读取xls测试数据 -- 流程测试
 
 
-import xlrd,os
+import xlrd
+import os
 from util.readXlsUtil import readXlsUtil
 
+
 class readXlsUtil2():
-    def __init__(self,xlsPath):
+    def __init__(self, xlsPath):
         self.xlsPath = xlsPath
         self.data = xlrd.open_workbook(xlsPath)
         self.sheetList = self.data.sheet_names()
@@ -22,7 +24,7 @@ class readXlsUtil2():
         # # 获取总列数
         # self.colNum = self.table.ncols
 
-    def dict_data(self,case_type):
+    def dict_data(self, case_type):
         # 定义用例数组
         dict_data = []
 
@@ -36,8 +38,8 @@ class readXlsUtil2():
             rowCount = table.nrows
             # print('总行数',rowCount)
 
-            if rowCount <1:   # 如果总行数小于等于1，也就是没有数据
-                print("未在%s的%s中找到测试数据"%(self.xlsPath,sheet))
+            if rowCount < 1:   # 如果总行数小于等于1，也就是没有数据
+                print("未在%s的%s中找到测试数据" % (self.xlsPath, sheet))
             else:  # 如果总行数>1
 
                 # 取到第一行的key
@@ -66,6 +68,7 @@ class readXlsUtil2():
             dict_data.append(r)
         return dict_data
 
+
 if __name__ == "__main__":
     filepath = '../data/case_smdc.xlsx'
     # sheetName = 'Sheet1'
@@ -73,7 +76,7 @@ if __name__ == "__main__":
     # print(len(data.dict_data(1)))
     print('\n')
     print('\n')
-    print('最终结果为：%s'% data.dict_data(1))
+    print('最终结果为：%s' % data.dict_data(1))
     # print('\n')
     # print(readXlsUtil(filepath,'Sheet2').dict_data(1))
     # print(data.dict_data(1))

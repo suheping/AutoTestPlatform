@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 # author:peace
 # datetime:2018/9/30 10:48
 # file:baseApi
@@ -6,13 +6,14 @@
 
 import json
 import requests
-from util.copyXls import writeXls,copyXls
+from util.copyXls import writeXls, copyXls
 from util.readXlsUtil import readXlsUtil
 from util.logUtil import Log
 
 logger = Log('baseApi')
 
-def sendRequest(session,testData):
+
+def sendRequest(session, testData):
     '''封装requests请求'''
     # print('testdata:%s'%testData)
     caseId = testData['caseId']
@@ -47,23 +48,23 @@ def sendRequest(session,testData):
         logger.info('请求body_type 为空')
         body = body
     if method == 'post':
-        logger.info("post请求body类型为：%s，body内容为：%s" % (bodyType,body))
+        logger.info("post请求body类型为：%s，body内容为：%s" % (bodyType, body))
 
     verify = False
     result = {}
 
     try:
         response = session.request(method=method,
-                      url=url,
-                      params=params,
-                      headers=headers,
-                      data=body,
-                      verify=verify
-                       )
+                                   url=url,
+                                   params=params,
+                                   headers=headers,
+                                   data=body,
+                                   verify=verify
+                                   )
 
         logger.info("返回信息：%s" % response.content.decode('utf-8'))
         if 'sheetName' in testData.keys():
-            result['sheetName'] =testData['sheetName']
+            result['sheetName'] = testData['sheetName']
         else:
             result['sheetName'] = 'Sheet1'
 
@@ -83,7 +84,7 @@ def sendRequest(session,testData):
             else:
                 result["result"] = "fail"
         # return result
-    except Exception as e :
+    except Exception as e:
         result['error'] = str(e)
         result['result'] = 'fail'
         logger.error('请求报错，错误信息为：%s' % str(e))
@@ -93,27 +94,29 @@ def sendRequest(session,testData):
         # print("result:%s" % result)
         return result
 
-def writeResult(result,filename):
+
+def writeResult(result, filename):
     rowNum = result['rowNum']
     wt = writeXls(filename)
-    wt.write(rowNum,9,result['statusCode'])
-    wt.write(rowNum,10,result['text'])
-    wt.write(rowNum,11,result['error'])
-    wt.write(rowNum,12,result['times'])
-    wt.write(rowNum,13,result['result'])
+    wt.write(rowNum, 9, result['statusCode'])
+    wt.write(rowNum, 10, result['text'])
+    wt.write(rowNum, 11, result['error'])
+    wt.write(rowNum, 12, result['times'])
+    wt.write(rowNum, 13, result['result'])
 
-def writeResult2(result,filename):
+
+def writeResult2(result, filename):
     wt = writeXls(filename)
-    wt.write2(result['sheetName'],result['rowNum'],9,result['statusCode'])
-    wt.write2(result['sheetName'],result['rowNum'],10,result['text'])
-    wt.write2(result['sheetName'],result['rowNum'],11,result['error'])
-    wt.write2(result['sheetName'],result['rowNum'],12,result['times'])
-    wt.write2(result['sheetName'],result['rowNum'],13,result['result'])
+    wt.write2(result['sheetName'], result['rowNum'], 9, result['statusCode'])
+    wt.write2(result['sheetName'], result['rowNum'], 10, result['text'])
+    wt.write2(result['sheetName'], result['rowNum'], 11, result['error'])
+    wt.write2(result['sheetName'], result['rowNum'], 12, result['times'])
+    wt.write2(result['sheetName'], result['rowNum'], 13, result['result'])
 
 
 if __name__ == '__main__':
-    testData = readXlsUtil('../data/case1.xlsx').dict_data(1)
+    testData = readXlsUtil('../data/case1.xlsx','sheet1').dict_data(1)
     session = requests.session()
-    result = sendRequest(session,testData[0])
-    copyXls('../data/case1.xlsx','../report/case1_result.xlsx')
-    writeResult(result,'../report/case1_result.xlsx')
+    result = sendRequest(session, testData[0])
+    copyXls('../data/case1.xlsx', '../report/case1_result.xlsx')
+    writeResult(result, '../report/case1_result.xlsx')
